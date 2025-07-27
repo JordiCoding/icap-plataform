@@ -1,0 +1,141 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "notFound": "Page not found",
+    "backToHome": "Back to Home",
+    "shariaCompliant": "Sharia Compliant"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "contact": "Contact",
+    "language": "Language",
+    "brokerage": "Brokerage",
+    "assetManagment": "Asset Managment",
+    "investmentBanking": "Investment Banking",
+    "realEstate": "Real Estate",
+    "newsroom": "Newsroom"
+  },
+  "header": {
+    "logo": "ICAP Website",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "footer": {
+    "services": "Services",
+    "localBrokerage": "Local Brokerage",
+    "globalBrokerage": "Global Brokerage",
+    "marginLending": "Margin Lending",
+    "portfolioManagment": "Portfolio Managment",
+    "mutualFunds": "Mutual Funds",
+    "investmentBanking": "Investment Banking",
+    "realEstate": "Real Estate",
+    "company": "Company",
+    "aboutUs": "About us",
+    "media": "Media",
+    "careers": "Careers",
+    "quickLinks": "Quick Links",
+    "formsAndApplications": "Forms & applications",
+    "investorsAwareness": "Investors awareness",
+    "informationSecurity": "Information security",
+    "valueAddedTax": "Value added tax",
+    "registerComplaint": "Register a complaint",
+    "getInTouch": "Get in touch",
+    "contactUs": "Contact us",
+    "phone1": "+966 011-254-7605",
+    "phone2": "+966 011-254-7605",
+    "email": "webecare@icap.com.sa",
+    "address": "P.O. Box 6888, Riyadh 11452",
+    "logoDescription": "Al-Istithmar Capital, is a Saudi company licensed by the Saudi Capital Market Authority with license No. (37-11156)",
+    "termsOfService": "Terms of service",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy policy",
+    "copyright": "© Copyright 2025. All Right Reserved."
+  },
+  "home": {
+    "title": "Investing Made Smarter",
+    "subtitle": "Experience seamless and secure investing with Alistithmar Capital",
+    "cta": "Get Started",
+    "login": "Log in",
+    "signup": "Sign Up",
+    "startInvesting": "Start Investing",
+    "openAccount": "Open Account"
+  },
+  "portfolio": {
+    "preTitle": "Your Portfolio",
+    "title": "Always with You",
+    "description": "Subscribe to funds, trade local and international markets, and track your investments - right from your phone"
+  },
+  "marginLending": {
+    "title": "Expand Your Investment<1/>Potential with <0>Margin Lending</0>",
+    "subtitle": "Enhance your trading potential with secure, flexible, and Sharia-compliant margin financing from Alistithmar Capital.",
+    "button": "Learn More"
+  },
+  "market": {
+    "live": "Live",
+    "delayed": "Delayed",
+    "mock": "Mock",
+    "lastUpdated": "Last Updated",
+    "updating": "Updating market data"
+  },
+  "funds": {
+    "Diversified Fund": "Diversified Fund",
+    "Diversified Fund.description": "A diversified mix of Sharia-compliant Sukuk, fixed income, trade finance, money market instruments, and similar funds",
+    "MENA Equity Fund": "MENA Equity Fund",
+    "MENA Equity Fund.description": "A diversified portfolio of listed equities, IPOs, REITs, ETFs, short-term instruments, and trade finance products",
+    "Freestyle Equity Fund": "Freestyle Equity Fund",
+    "Freestyle Equity Fund.description": "A balanced mix of Saudi equities, public offerings, short-term Islamic instruments, trade finance, and similar funds"
+  },
+  "risk": {
+    "low": "Low Risk",
+    "medium": "Medium Risk",
+    "high": "High Risk"
+  },
+  "mutualFunds": {
+    "riskLevel": "Risk Level",
+    "risk": {
+      "low": "Low Risk",
+      "medium": "Medium Risk",
+      "high": "High Risk"
+    },
+    "shariaCompliant": "Sharia Compliant"
+  },
+  "globalMarkets": {
+    "titlePart1": "One platform",
+    "titlePart2": "Endless markets",
+    "subtitle": "Access U.S. and GCC markets in a few taps — all in one platform.",
+    "learnMore": "Learn More"
+  },
+  "whyAlistithmar": {
+    "title": "Why Alistithmar Capital?",
+    "subtitle": "Backed by one of the Kingdom's most trusted financial institutions — bringing decades of financial expertise.",
+    "secureTitle": "Secure & Trusted",
+    "secureDescription": "Licensed by the Capital Market Authority (CMA) — with enterprise-grade security and compliance.",
+    "shariaTitle": "Shariah-Compliant Options",
+    "shariaDescription": "A wide range of compliant funds and portfolios tailored for values-based investing.",
+    "globalTitle": "Global Reach, Local Roots",
+    "globalDescription": "Trade local markets or access global opportunities across the U.S. and Gulf region"
+  },
+  "newsroom": {
+    "title": "Newsroom",
+    "subtitle": "Stay updated with the latest news, media features, and announcements about Alistithmar Capital — as featured in leading publications.",
+    "viewAllArticles": "View All Articles"
+  },
+  "cta": {
+    "preTitle": "Ready to Take the Next Step?",
+    "mainTitle": "Start building your portfolio today",
+    "subtitle": "your future is one tap away",
+    "description": "Join a growing community of investors moving forward with ICAP.",
+    "scanMe": "Scan Me"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "newsroom": "Newsroom",
+    "article": "Article"
+  },
+  "news": {
+    "recommendedArticles": "Recommended Articles"
+  }
+} 
