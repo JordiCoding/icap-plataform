@@ -362,6 +362,40 @@ export interface AdminUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiHeroContentHeroContent extends Schema.CollectionType {
+  collectionName: 'hero_contents';
+  info: {
+    displayName: 'Hero Content';
+    pluralName: 'hero-contents';
+    singularName: 'hero-content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hero-content.hero-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    locale: Attribute.Enumeration<['en', 'ar']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'en'>;
+    publishedAt: Attribute.DateTime;
+    subtitle: Attribute.Text & Attribute.Required;
+    title: Attribute.String;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::hero-content.hero-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease extends Schema.CollectionType {
   collectionName: 'strapi_releases';
   info: {
@@ -798,6 +832,7 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::hero-content.hero-content': ApiHeroContentHeroContent;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

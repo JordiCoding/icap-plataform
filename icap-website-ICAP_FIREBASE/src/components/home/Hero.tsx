@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
-import { useCmsData } from '../../hooks/useCmsData';
+import { useStrapiHero } from '../../hooks/useStrapiHero';
 import { useTypography } from '../../hooks/useTypography';
 
 const containerVariants = {
@@ -24,18 +24,18 @@ const Hero: React.FC = () => {
   const { t } = useTranslation();
   const { getTypographyClasses } = useTypography();
   
-  // Fetch CMS data
-  const { data: cmsData, loading: cmsLoading, error: cmsError } = useCmsData();
+  // Fetch Strapi data instead of Hygraph
+  const { data: strapiData, loading: strapiLoading, error: strapiError } = useStrapiHero();
   
-  // Use CMS data if available, fallback to translation keys
-  const title = cmsData?.hero?.title || t('home.title');
-  const subtitle = cmsData?.hero?.subtitle || t('home.subtitle');
-  const ctaPrimary = cmsData?.hero?.ctaPrimary || t('home.login');
-  const ctaSecondary = cmsData?.hero?.ctaSecondary || t('home.signup');
-  const backgroundImage = cmsData?.hero?.backgroundImage?.url || '/images/hero-background.jpg';
+  // Use Strapi data if available, fallback to translation keys
+  const title = strapiData?.hero?.attributes?.title || t('home.title');
+  const subtitle = strapiData?.hero?.attributes?.subtitle || t('home.subtitle');
+  const ctaPrimary = t('home.login');
+  const ctaSecondary = t('home.signup');
+  const backgroundImage = '/images/hero-background.jpg'; // Keep static for now
 
-  // Show loading state if CMS data is being fetched
-  if (cmsLoading) {
+  // Show loading state if Strapi data is being fetched
+  if (strapiLoading) {
     return (
       <div className="relative h-screen bg-gray-900 flex items-center justify-center text-white">
         <div className="text-center">
@@ -46,9 +46,9 @@ const Hero: React.FC = () => {
     );
   }
 
-  // Show error state if CMS data failed to load (but still show fallback content)
-  if (cmsError) {
-    console.warn('CMS data failed to load, using fallback content:', cmsError);
+  // Show error state if Strapi data failed to load (but still show fallback content)
+  if (strapiError) {
+    console.warn('Strapi data failed to load, using fallback content:', strapiError);
   }
 
   return (
