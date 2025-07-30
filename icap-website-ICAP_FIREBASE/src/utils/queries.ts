@@ -13,9 +13,11 @@ export const GET_FUND_SLIDER_SECTION = gql`
         isShariaCompliant
         icon {
           url
+          mimeType
         }
         iconEn: icon(locales: en) {
           url
+          mimeType
         }
         order
       }

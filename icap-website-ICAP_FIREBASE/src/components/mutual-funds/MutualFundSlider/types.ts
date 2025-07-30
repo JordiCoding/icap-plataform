@@ -2,6 +2,7 @@ export type RiskLevel = 'low' | 'medium' | 'high';
 
 export interface IconAsset {
   url: string;
+  mimeType?: string;
 }
 
 export interface FundCardProps {

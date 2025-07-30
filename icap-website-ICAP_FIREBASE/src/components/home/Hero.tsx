@@ -32,7 +32,6 @@ const Hero: React.FC = () => {
   const subtitle = strapiData?.hero?.attributes?.subtitle || t('home.subtitle');
   const ctaPrimary = t('home.login');
   const ctaSecondary = t('home.signup');
-  const backgroundImage = '/images/hero-background.jpg'; // Keep static for now
 
   // Show loading state if Strapi data is being fetched
   if (strapiLoading) {
@@ -52,10 +51,21 @@ const Hero: React.FC = () => {
   }
 
   return (
-    <div 
-      className="relative h-screen bg-cover bg-center flex items-center justify-center text-white"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
+    <div className="relative h-screen bg-gray-900 flex items-center justify-center text-white overflow-hidden">
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
+      >
+        <source src="/images/header_2.webm" type="video/webm" />
+        {/* Fallback for browsers that don't support webm */}
+        <source src="/images/hero-background.jpg" type="image/jpeg" />
+      </video>
+
       <motion.div
         className="relative z-10 text-center"
         variants={containerVariants}

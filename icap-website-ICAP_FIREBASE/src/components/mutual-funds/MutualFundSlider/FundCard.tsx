@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useMemo, useRef, useEffect } from 'react';
 import clsx from 'clsx';
 import { useTypography } from '../../../hooks/useTypography';
 import type { FundCardProps } from './types';
@@ -31,9 +32,60 @@ export function FundCard({
   const { t } = useTranslation();
   const { getTypographyClasses } = useTypography();
   const riskStyle = RISK_STYLES[riskLevel];
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // Use icon from current locale, or fallback to English/default icon
   const iconUrl = icon?.url || iconEn?.url;
+
+  // Enhanced detection for webm files
+  // Check multiple sources: mimeType, file extension, or known Hygraph video URLs
+  const isWebm = useMemo(() => {
+    if (!iconUrl) return false;
+    
+    // Check mimeType first (most reliable)
+    if (icon?.mimeType === 'video/webm' || iconEn?.mimeType === 'video/webm') {
+      return true;
+    }
+    
+    // Check if URL contains webm (for Hygraph URLs that might not have extension)
+    if (iconUrl.toLowerCase().includes('webm')) {
+      return true;
+    }
+    
+    // Check file extension
+    if (iconUrl.toLowerCase().endsWith('.webm')) {
+      return true;
+    }
+    
+    // For Hygraph URLs, we can also check if it's a known video asset
+    // This is a fallback for when mimeType is not available
+    return false;
+  }, [iconUrl, icon?.mimeType, iconEn?.mimeType]);
+
+  // Programmatically start video playback
+  useEffect(() => {
+    if (isWebm && videoRef.current) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log('✅ Video started playing for:', title);
+          })
+          .catch((error) => {
+            console.warn('⚠️ Video play prevented for:', title, error);
+          });
+      }
+    }
+  }, [iconUrl, isWebm, title]);
+
+  // Debug logging
+  console.log('FundCard Debug:', {
+    title,
+    iconUrl,
+    isWebm,
+    iconMimeType: icon?.mimeType,
+    iconEnMimeType: iconEn?.mimeType
+  });
 
   return (
     <div 
@@ -62,9 +114,49 @@ export function FundCard({
         />
         <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
           {iconUrl ? (
-            <img src={iconUrl} alt="" className="w-24 h-24 object-contain" />
+            isWebm ? (
+              <video
+                ref={videoRef}
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls={false}
+                className="w-32 h-32 object-contain"
+                onError={(e) => {
+                  console.error('Video failed to load:', iconUrl);
+                }}
+                onLoadStart={() => {
+                  console.log('Video loading started:', iconUrl);
+                }}
+                onCanPlay={() => {
+                  console.log('Video can play:', iconUrl);
+                }}
+              >
+                <source src={iconUrl} type="video/webm" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img 
+                src={iconUrl} 
+                alt={title} 
+                className="w-32 h-32 object-contain"
+                onError={(e) => {
+                  console.error('Image failed to load:', iconUrl);
+                  // Try to load as video if image fails (fallback)
+                  console.log('Attempting to load as video...');
+                  e.currentTarget.style.display = 'none';
+                  // You could add a video element here as fallback
+                }}
+                onLoad={() => {
+                  console.log('Image loaded successfully:', iconUrl);
+                }}
+              />
+            )
           ) : (
-            <div className="w-24 h-24 bg-gray-200 rounded-lg" /> // Placeholder
+            <div className="w-32 h-32 bg-gray-200 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500 text-xs">No Icon</span>
+            </div>
           )}
         </div>
       </div>
