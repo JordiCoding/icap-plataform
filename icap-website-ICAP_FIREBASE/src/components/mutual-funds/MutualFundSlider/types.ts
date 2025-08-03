@@ -5,10 +5,23 @@ export interface IconAsset {
   mimeType?: string;
 }
 
+export interface Fund {
+  id: string;
+  title: string;
+  titleAr: string;
+  description: string;
+  descriptionAr: string;
+  riskLevel: RiskLevel;
+  isShariaCompliant: boolean;
+  icon: string;
+}
+
 export interface FundCardProps {
   id: string;
   title: string;
+  titleAr: string;
   description: string;
+  descriptionAr: string;
   riskLevel: RiskLevel;
   isShariaCompliant: boolean;
   icon: IconAsset;

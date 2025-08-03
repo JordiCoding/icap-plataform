@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { hygraphClient } from '../utils/hygraph';
-import { GET_FUND_SLIDER_SECTION } from '../utils/queries';
-import type { FundCardProps } from '../components/mutual-funds/MutualFundSlider/types';
 import { useTranslation } from 'react-i18next';
+import { useLanguage } from './useLanguage';
+import { INITIAL_FUNDS } from '../components/mutual-funds/MutualFundSlider/constants';
+import type { FundCardProps } from '../components/mutual-funds/MutualFundSlider/types';
 
 interface FundSliderData {
   title: string;
@@ -10,33 +10,37 @@ interface FundSliderData {
   funds: FundCardProps[];
 }
 
-interface HygraphResponse {
-  fundSliderSections: FundSliderData[];
-}
-
 export function useFundSlider() {
   const [data, setData] = useState<FundSliderData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const { i18n } = useTranslation();
-  const currentLanguage = i18n.language as 'en' | 'ar';
+  const { currentLanguage } = useLanguage();
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const result = await hygraphClient.request<HygraphResponse>(
-          GET_FUND_SLIDER_SECTION,
-          { locale: currentLanguage }
-        );
-        console.log('Hygraph fund slider data for', currentLanguage, result);
-        if (result.fundSliderSections && result.fundSliderSections.length > 0 && result.fundSliderSections[0].funds && result.fundSliderSections[0].funds.length > 0) {
-          setData(result.fundSliderSections[0]);
-        } else {
-          setData(null);
-          setError('No mutual funds available.');
-        }
+        // Convert the constants data to the expected format
+        const funds: FundCardProps[] = INITIAL_FUNDS.map(fund => ({
+          id: fund.id,
+          title: fund.title,
+          titleAr: fund.titleAr,
+          description: fund.description,
+          descriptionAr: fund.descriptionAr,
+          riskLevel: fund.riskLevel,
+          isShariaCompliant: fund.isShariaCompliant,
+          icon: { url: fund.icon, mimeType: undefined },
+          iconEn: { url: fund.icon, mimeType: undefined }
+        }));
+
+        const fundSliderData: FundSliderData = {
+          title: currentLanguage === 'ar' ? 'صناديقنا الاستثمارية' : 'Our Investment Funds',
+          subtitle: currentLanguage === 'ar' ? 'اكتشف مجموعة متنوعة من الصناديق المتوافقة مع الشريعة' : 'Discover our diverse range of Sharia-compliant funds',
+          funds: funds
+        };
+
+        setData(fundSliderData);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to fetch fund data');
+        setError(err instanceof Error ? err.message : 'Failed to load fund data');
         setData(null);
       } finally {
         setIsLoading(false);
@@ -44,7 +48,7 @@ export function useFundSlider() {
     }
 
     fetchData();
-  }, [currentLanguage, i18n.language]);
+  }, [currentLanguage]);
 
   return { data, isLoading, error };
 } 

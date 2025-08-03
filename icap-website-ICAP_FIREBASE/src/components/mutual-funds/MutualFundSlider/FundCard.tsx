@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useMemo, useRef, useEffect } from 'react';
 import clsx from 'clsx';
 import { useTypography } from '../../../hooks/useTypography';
+import { useLanguage } from '../../../hooks/useLanguage';
 import type { FundCardProps } from './types';
 import type { IconAsset } from './types';
 
@@ -22,7 +23,9 @@ const RISK_STYLES = {
 
 export function FundCard({
   title,
+  titleAr,
   description,
+  descriptionAr,
   riskLevel,
   isShariaCompliant,
   icon,
@@ -30,9 +33,14 @@ export function FundCard({
   className
 }: FundCardProps) {
   const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
   const { getTypographyClasses } = useTypography();
   const riskStyle = RISK_STYLES[riskLevel];
   const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  // Use appropriate language content
+  const displayTitle = currentLanguage === 'ar' ? titleAr : title;
+  const displayDescription = currentLanguage === 'ar' ? descriptionAr : description;
 
   // Use icon from current locale, or fallback to English/default icon
   const iconUrl = icon?.url || iconEn?.url;
@@ -69,23 +77,14 @@ export function FundCard({
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
-            console.log('✅ Video started playing for:', title);
+            // Video started playing successfully
           })
           .catch((error) => {
-            console.warn('⚠️ Video play prevented for:', title, error);
+            // Video play prevented
           });
       }
     }
   }, [iconUrl, isWebm, title]);
-
-  // Debug logging
-  console.log('FundCard Debug:', {
-    title,
-    iconUrl,
-    isWebm,
-    iconMimeType: icon?.mimeType,
-    iconEnMimeType: iconEn?.mimeType
-  });
 
   return (
     <div 
@@ -124,13 +123,13 @@ export function FundCard({
                 controls={false}
                 className="w-32 h-32 object-contain"
                 onError={(e) => {
-                  console.error('Video failed to load:', iconUrl);
+                  // Video failed to load
                 }}
                 onLoadStart={() => {
-                  console.log('Video loading started:', iconUrl);
+                  // Video loading started
                 }}
                 onCanPlay={() => {
-                  console.log('Video can play:', iconUrl);
+                  // Video can play
                 }}
               >
                 <source src={iconUrl} type="video/webm" />
@@ -142,14 +141,10 @@ export function FundCard({
                 alt={title} 
                 className="w-32 h-32 object-contain"
                 onError={(e) => {
-                  console.error('Image failed to load:', iconUrl);
-                  // Try to load as video if image fails (fallback)
-                  console.log('Attempting to load as video...');
-                  e.currentTarget.style.display = 'none';
-                  // You could add a video element here as fallback
+                  // Image failed to load
                 }}
                 onLoad={() => {
-                  console.log('Image loaded successfully:', iconUrl);
+                  // Image loaded successfully
                 }}
               />
             )
@@ -163,17 +158,19 @@ export function FundCard({
       {/* Card content below top section */}
       <div className="flex-1 flex flex-col px-8 pb-8 pt-6">
         <h3 className={clsx(
-          "mb-4 text-right font-bold text-gray-900",
+          "mb-4 font-bold text-gray-900",
+          currentLanguage === 'ar' ? 'text-right' : 'text-left',
           getTypographyClasses('title')
-        )} style={{ fontSize: 20, lineHeight: '28px' }}>{title}</h3>
+        )} style={{ fontSize: 20, lineHeight: '28px' }}>{displayTitle}</h3>
         {/* Badges Row */}
         <div className="flex flex-row items-center gap-3 mb-4">
           {/* Risk Badge */}
           <span className={clsx(
-            "flex items-center justify-center px-4",
+            "flex items-center justify-center px-3",
             riskStyle.bg,
             riskStyle.text,
-            "rounded-[8px] h-8 text-[12px] font-medium",
+            "rounded-[8px] h-8 text-[11px] font-medium",
+            "whitespace-nowrap flex-shrink-0",
             getTypographyClasses('body')
           )}>
             {t(`mutualFunds.risk.${riskLevel}`)}
@@ -181,7 +178,8 @@ export function FundCard({
           {/* Sharia Compliant Badge */}
           {isShariaCompliant && (
             <span className={clsx(
-              "flex items-center justify-center px-4 rounded-[8px] h-8 text-[12px] font-medium bg-[#FBF7F1] text-black gap-1",
+              "flex items-center justify-center px-3 rounded-[8px] h-8 text-[11px] font-medium bg-[#FBF7F1] text-black gap-1",
+              "whitespace-nowrap flex-shrink-0",
               getTypographyClasses('body')
             )}>
               {t('mutualFunds.shariaCompliant')}
@@ -190,9 +188,10 @@ export function FundCard({
         </div>
         {/* Description */}
         <p className={clsx(
-          "text-right text-gray-600 leading-relaxed",
+          "text-gray-600 leading-relaxed",
+          currentLanguage === 'ar' ? 'text-right' : 'text-left',
           getTypographyClasses('body')
-        )} style={{ fontSize: 16, lineHeight: '26px' }}>{description}</p>
+        )} style={{ fontSize: 16, lineHeight: '26px' }}>{displayDescription}</p>
       </div>
     </div>
   );

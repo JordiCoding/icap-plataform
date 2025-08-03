@@ -47,6 +47,7 @@ export function MutualFundSlider() {
 
   const [sliderRef, instanceRef] = useKeenSlider({
     mode: "snap",
+    rtl: i18n.language === 'ar',
     slides: { 
       perView: 1,
       spacing: 0,
@@ -74,6 +75,14 @@ export function MutualFundSlider() {
       setLoaded(true);
     },
   });
+
+  // Update slider when language changes
+  useEffect(() => {
+    if (instanceRef.current) {
+      // Force slider to update with new RTL configuration
+      instanceRef.current.update();
+    }
+  }, [i18n.language, instanceRef]);
 
   // Loading state
   if (isLoading) {
@@ -127,7 +136,7 @@ export function MutualFundSlider() {
       </div>
 
       <div className="py-[12px]">
-        <div ref={sliderRef} className="keen-slider" dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}>
+        <div ref={sliderRef} className="keen-slider">
           {data.funds.map((fund, idx) => (
             <div 
               key={fund.id} 
@@ -153,12 +162,15 @@ export function MutualFundSlider() {
                 <button
                   key={idx}
                   onClick={() => instanceRef.current?.moveToIdx(idx)}
-                  className={`
-                    h-2 rounded-full transition-all duration-300
-                    ${currentSlide === idx ? 'w-8 bg-[#C87D55]' : 'w-2 bg-gray-300'}
-                  `}
+                  className="transition-all duration-300"
                   aria-label={`Go to slide ${idx + 1}`}
-                />
+                >
+                  <img
+                    src={currentSlide === idx ? "/images/activedot.svg" : "/images/inactivedot.svg"}
+                    alt=""
+                    className="w-3 h-3"
+                  />
+                </button>
               ))}
             </div>
 
@@ -171,8 +183,8 @@ export function MutualFundSlider() {
                     disabled={currentSlide >= maxSlide}
                     className={`
                       w-12 h-12 rounded-full flex items-center justify-center
-                      bg-[#C87D55] text-white
-                      hover:bg-[#B66D45] disabled:opacity-50
+                      bg-gradient-to-r from-[#F2D794] to-[#D0A457] text-black
+                      hover:opacity-90 disabled:opacity-50
                       transition-all duration-200
                     `}
                     aria-label="Next slide"
@@ -252,8 +264,8 @@ export function MutualFundSlider() {
                 disabled={currentSlide >= maxSlide}
                 className={`
                   w-12 h-12 rounded-full flex items-center justify-center
-                  bg-[#C87D55] text-white
-                  hover:bg-[#B66D45] disabled:opacity-50
+                  bg-gradient-to-r from-[#F2D794] to-[#D0A457] text-black
+                  hover:opacity-90 disabled:opacity-50
                   transition-all duration-200
                 `}
                 aria-label="Next slide"

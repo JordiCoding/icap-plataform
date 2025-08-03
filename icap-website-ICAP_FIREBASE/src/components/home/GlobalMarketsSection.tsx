@@ -36,14 +36,26 @@ const GlobalMarketsSection: React.FC = () => {
         }}
       />
       
-      {/* Tablet & Desktop Background Image */}
-      <div 
-        className="absolute inset-0 hidden md:block bg-no-repeat bg-cover bg-bottom"
-        style={{ 
-          backgroundImage: 'url(/images/global.png)',
-          backgroundSize: '100% auto',
-        }}
-      />
+      {/* Tablet & Desktop Background Video */}
+      <div className="absolute inset-0 hidden md:block">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/images/globe.mp4" type="video/mp4" />
+          {/* Fallback for browsers that don't support mp4 */}
+          <div 
+            className="w-full h-full bg-no-repeat bg-cover bg-bottom"
+            style={{ 
+              backgroundImage: 'url(/images/global.png)',
+              backgroundSize: '100% auto',
+            }}
+          />
+        </video>
+      </div>
       
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
       

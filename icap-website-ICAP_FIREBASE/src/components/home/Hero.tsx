@@ -61,28 +61,32 @@ const Hero: React.FC = () => {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ zIndex: 0 }}
       >
-        <source src="/images/header_2.webm" type="video/webm" />
-        {/* Fallback for browsers that don't support webm */}
+        <source src="/images/herobackground.mp4" type="video/mp4" />
+        {/* Fallback for browsers that don't support mp4 */}
         <source src="/images/hero-background.jpg" type="image/jpeg" />
       </video>
 
       <motion.div
-        className="relative z-10 text-center"
+        className="relative z-10 text-center max-w-[90%] sm:max-w-[700px] lg:max-w-[920px] mx-auto px-4"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.h1
-          className={`text-5xl md:text-7xl font-bold mb-4 ${getTypographyClasses('body')}`}
+          className={`text-5xl md:text-7xl mb-4 leading-tight tracking-tight break-words ${getTypographyClasses('hero-title')}`}
           variants={itemVariants}
         >
-          {title}
+          {title.split('\\n').map((line, idx) => (
+            <div key={idx}>{line}</div>
+          ))}
         </motion.h1>
         <motion.p
-          className={`text-lg md:text-xl mb-8 ${getTypographyClasses('body')}`}
+          className={`mb-8 ${getTypographyClasses('subtitle-hero')}`}
           variants={itemVariants}
         >
-          {subtitle}
+          {subtitle.split('\\n').map((line, idx) => (
+            <div key={idx}>{line}</div>
+          ))}
         </motion.p>
         <motion.div
           className="flex justify-center"

@@ -64,8 +64,24 @@
 
 @font-face {
   font-family: 'Jokker';
+  src: url('./jokker/Jokker-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jokker';
   src: url('./jokker/Jokker-Medium.woff2') format('woff2');
   font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jokker';
+  src: url('./jokker/Jokker-Semibold.woff2') format('woff2');
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -96,4 +112,31 @@
 
 .font-body-en {
   font-family: var(--font-english-body);
-} 
+}
+
+/* Custom Typography Classes */
+.subtitle-hero {
+  font-size: 18px; /* text-lg */
+  line-height: 1.4;
+  font-weight: 300; /* light */
+  font-family: var(--font-english-body);
+}
+
+@media (min-width: 768px) {
+  .subtitle-hero {
+    font-size: 20px; /* md:text-xl */
+  }
+}
+
+.subtitle-hero-ar {
+  font-size: 18px; /* text-lg */
+  line-height: 1.4;
+  font-weight: 300; /* light for Arabic */
+  font-family: var(--font-arabic-body);
+}
+
+@media (min-width: 768px) {
+  .subtitle-hero-ar {
+    font-size: 20px; /* md:text-xl */
+  }
+}

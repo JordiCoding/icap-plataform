@@ -21,7 +21,7 @@ const Button = <C extends React.ElementType = 'button'>({
   const Component = as || 'button';
   const { getTypographyClasses } = useTypography();
 
-  const baseStyles = `inline-block px-8 py-4 transition-colors text-center ${getTypographyClasses('body')}`;
+  const baseStyles = `inline-block px-8 py-4 transition-colors text-center ${getTypographyClasses('button')}`;
 
   const variantStyles = {
     primary: 'rounded-[52px] bg-gradient-to-r from-[#F2D794] to-[#D0A457] text-icap-primary hover:opacity-90',
