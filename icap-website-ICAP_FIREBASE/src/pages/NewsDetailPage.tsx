@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useTypography } from '../hooks/useTypography';
-import { useNewsData } from '../hooks/useNewsData';
+import { useStrapiNews } from '../hooks/useStrapiNews';
 
 interface Article {
   id: string;
@@ -24,7 +24,7 @@ const NewsDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { t } = useTranslation();
   const { getTypographyClasses } = useTypography();
-  const { fetchArticleBySlug } = useNewsData();
+  const { fetchArticleBySlug } = useStrapiNews();
   const [article, setArticle] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

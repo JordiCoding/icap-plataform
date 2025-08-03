@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, useInView } from 'framer-motion';
 import { useTypography } from '../../hooks/useTypography';
-import { useNewsData } from '../../hooks/useNewsData';
+import { useStrapiNews } from '../../hooks/useStrapiNews';
 import Button from '../ui/Button';
 import { NewsSlider } from '../news/NewsSlider';
 import type { NewsCardProps } from '../../types/news';
@@ -13,8 +13,8 @@ const NewsroomSection: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  // Fetch news articles from CMS
-  const { articles, loading, error } = useNewsData();
+  // Fetch news articles from Strapi CMS
+  const { articles, loading, error } = useStrapiNews();
   
   // Transform articles for NewsSlider
   const newsArticles: NewsCardProps[] = articles.map(article => ({
@@ -30,7 +30,7 @@ const NewsroomSection: React.FC = () => {
   // Loading state
   if (loading) {
     return (
-      <section className="relative bg-white py-[150px] md:py-[200px] overflow-hidden">
+      <section className="relative bg-white pt-[100px] md:pt-[120px] pb-[100px] md:pb-[120px] overflow-hidden">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-icap-primary mx-auto mb-4"></div>
@@ -44,10 +44,10 @@ const NewsroomSection: React.FC = () => {
   // Error state
   if (error) {
     return (
-      <section className="relative bg-white py-[150px] md:py-[200px] overflow-hidden">
+      <section className="relative bg-white pt-[100px] md:pt-[120px] pb-[100px] md:pb-[120px] overflow-hidden">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className={`text-4xl lg:text-5xl text-icap-primary mb-6 ${getTypographyClasses('title')}`}>
+            <h2 className={`text-4xl lg:text-[52px] text-icap-primary mb-6 ${getTypographyClasses('title')}`}>
               {t('newsroom.title')}
             </h2>
             <p className={`text-red-600 mb-8 ${getTypographyClasses('body')}`}>
@@ -77,7 +77,7 @@ const NewsroomSection: React.FC = () => {
   return (
     <section 
       ref={ref}
-      className="relative bg-white py-[150px] md:py-[200px] overflow-hidden"
+      className="relative bg-white pt-[100px] md:pt-[120px] pb-[100px] md:pb-[120px] overflow-hidden"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -88,11 +88,11 @@ const NewsroomSection: React.FC = () => {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="mb-16">
-            <h2 className={`text-4xl lg:text-5xl text-icap-primary mb-6 ${getTypographyClasses('title')}`}>
+            <h2 className={`text-4xl lg:text-[52px] text-icap-primary mb-6 ${getTypographyClasses('title')}`}>
               {t('newsroom.title')}
             </h2>
-            <p className={`text-lg text-gray-600 max-w-4xl mx-auto mb-8 ${getTypographyClasses('body')}`}>
-              {t('newsroom.subtitle')}
+            <p className={`text-[22px] text-gray-600 max-w-4xl mx-auto mb-8 ${getTypographyClasses('body')}`}>
+              <span dangerouslySetInnerHTML={{ __html: t('newsroom.subtitle') }} />
             </p>
             <Button variant="primary" as="a" href="/newsroom">
               {t('newsroom.viewAllArticles')}

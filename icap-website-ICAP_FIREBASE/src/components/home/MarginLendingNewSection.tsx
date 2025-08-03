@@ -5,10 +5,11 @@ import { useTypography } from '../../hooks/useTypography';
 import Button from '../ui/Button';
 
 const MarginLendingNewSection: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { getTypographyClasses } = useTypography();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isArabic = i18n.language === 'ar';
 
   const imageVariants = {
     hidden: { opacity: 0, x: -50 },
@@ -24,9 +25,15 @@ const MarginLendingNewSection: React.FC = () => {
     <section 
       ref={ref}
       className="relative bg-white py-[150px] md:py-[200px] overflow-hidden"
+      style={{ 
+        backgroundImage: 'url(/images/content01-background.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8 lg:pr-30">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-y-12 lg:gap-x-[100px] rtl:lg:flex-row-reverse">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:pr-30">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-y-12 lg:gap-x-[80px] rtl:lg:flex-row-reverse">
           {/* Image */}
           <motion.div
             variants={imageVariants}
@@ -37,7 +44,7 @@ const MarginLendingNewSection: React.FC = () => {
             <img
               src="/images/marginlending.png"
               alt="Margin Lending"
-              className="w-[500px] h-auto object-contain"
+              className="w-[586px] h-auto object-contain"
             />
           </motion.div>
 
@@ -46,23 +53,41 @@ const MarginLendingNewSection: React.FC = () => {
             variants={textVariants}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
-            className="flex-1"
+            className="flex-1 w-full lg:min-w-[450px]"
           >
             <div className="text-center lg:text-right">
               {/* Title */}
-              <h2 className={`text-4xl lg:text-5xl text-icap-primary mb-6 ${getTypographyClasses('title')}`}>
+              <h2 className={`text-4xl lg:text-5xl text-icap-primary mb-6 ${isArabic ? 'leading-relaxed lg:leading-relaxed' : 'leading-tight lg:leading-tight'} ${getTypographyClasses('title')}`}>
                 <Trans
                   i18nKey="marginLending.title"
                   components={[
-                    <span className="text-[#C87D55]" />,
+                    <span className="text-[#A44F17]" />,
                     <br />
                   ]}
                 />
               </h2>
               
               {/* Subtitle */}
-              <p className={`text-lg text-gray-600 mb-8 ${getTypographyClasses('body')}`}>
-                {t('marginLending.subtitle')}
+              <p className={`${isArabic ? 'text-[22px] max-w-none' : 'text-lg'} text-gray-600 mb-8 ${getTypographyClasses('body')}`}>
+                {isArabic ? (
+                  <Trans
+                    i18nKey="marginLending.subtitle"
+                    components={[
+                      <span className="font-bold" style={{ fontFamily: 'Almarai, sans-serif' }} />, // <0> - عزز إمكانيات تداولك
+                      <br />, // <1> - line break
+                      <span className="font-bold" style={{ fontFamily: 'Almarai, sans-serif' }} />, // <2> - الاستثمار كابيتال
+                    ]}
+                  />
+                ) : (
+                  <Trans
+                    i18nKey="marginLending.subtitle"
+                    components={[
+                      <span className="font-medium" />, // <0> - Enhance your trading potential
+                      <br />, // <1> - line break
+                      <span className="font-medium" />, // <2> - Alistithmar Capital
+                    ]}
+                  />
+                )}
               </p>
               
               {/* Button */}

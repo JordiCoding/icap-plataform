@@ -33,8 +33,11 @@ export function MutualFundSlider() {
       // Show navigation based on number of funds vs visible slides
       setShouldShowNavigation(totalFunds > slidesPerView);
       
-      // Calculate max slide index based on total funds and slides per view
-      setMaxSlide(Math.max(0, totalFunds - slidesPerView));
+      // For page-based navigation: calculate number of pages (groups of 3)
+      // Always show 3 funds per page regardless of screen size for pagination
+      const fundsPerPage = 3;
+      const totalPages = Math.ceil(totalFunds / fundsPerPage);
+      setMaxSlide(Math.max(0, totalPages - 1));
     };
 
     updateSliderSettings();
@@ -131,7 +134,7 @@ export function MutualFundSlider() {
           )}
         </h2>
         {/* Subtitle: all black, preserve bold if present in CMS */}
-        <p className={`mt-4 sm:mt-5 md:mt-6 text-base sm:text-lg md:text-xl text-black max-w-[90%] sm:max-w-[80%] md:max-w-2xl mx-auto ${getTypographyClasses('body')}`}
+        <p className={`mt-4 sm:mt-5 md:mt-6 text-base sm:text-lg md:text-xl text-black max-w-[90%] sm:max-w-[80%] md:max-w-2xl mx-auto whitespace-nowrap ${getTypographyClasses('body')}`}
            dangerouslySetInnerHTML={{ __html: data.subtitle }} />
       </div>
 
@@ -158,20 +161,30 @@ export function MutualFundSlider() {
         {loaded && instanceRef.current && shouldShowNavigation && (
           <div className="flex justify-between items-center mt-12">
             <div className="flex gap-2">
-              {[...Array(maxSlide + 1)].map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => instanceRef.current?.moveToIdx(idx)}
-                  className="transition-all duration-300"
-                  aria-label={`Go to slide ${idx + 1}`}
-                >
-                  <img
-                    src={currentSlide === idx ? "/images/activedot.svg" : "/images/inactivedot.svg"}
-                    alt=""
-                    className="w-3 h-3"
-                  />
-                </button>
-              ))}
+              {[...Array(maxSlide + 1)].map((_, idx) => {
+                // Calculate which page we're currently on (groups of 3)
+                const currentPage = Math.floor(currentSlide / 3);
+                const isActive = currentPage === idx;
+                
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      // Navigate to the first slide of the selected page
+                      const targetSlide = idx * 3;
+                      instanceRef.current?.moveToIdx(targetSlide);
+                    }}
+                    className="transition-all duration-300"
+                    aria-label={`Go to page ${idx + 1}`}
+                  >
+                    <img
+                      src={isActive ? "/images/activedot.svg" : "/images/inactivedot.svg"}
+                      alt=""
+                      className="w-3 h-3"
+                    />
+                  </button>
+                );
+              })}
             </div>
 
             <div className="flex gap-4">
@@ -179,15 +192,21 @@ export function MutualFundSlider() {
                 <>
                   {/* Next (right) arrow for RTL */}
                   <button
-                    onClick={() => instanceRef.current?.next()}
-                    disabled={currentSlide >= maxSlide}
+                    onClick={() => {
+                      // Navigate to next page (group of 3)
+                      const currentPage = Math.floor(currentSlide / 3);
+                      const nextPage = Math.min(currentPage + 1, maxSlide);
+                      const targetSlide = nextPage * 3;
+                      instanceRef.current?.moveToIdx(targetSlide);
+                    }}
+                    disabled={Math.floor(currentSlide / 3) >= maxSlide}
                     className={`
                       w-12 h-12 rounded-full flex items-center justify-center
                       bg-gradient-to-r from-[#F2D794] to-[#D0A457] text-black
                       hover:opacity-90 disabled:opacity-50
                       transition-all duration-200
                     `}
-                    aria-label="Next slide"
+                    aria-label="Next page"
                   >
                     <svg
                       className="h-6 w-6"
@@ -205,15 +224,21 @@ export function MutualFundSlider() {
                   </button>
                   {/* Previous (left) arrow for RTL */}
                   <button
-                    onClick={() => instanceRef.current?.prev()}
-                    disabled={currentSlide === 0}
+                    onClick={() => {
+                      // Navigate to previous page (group of 3)
+                      const currentPage = Math.floor(currentSlide / 3);
+                      const prevPage = Math.max(currentPage - 1, 0);
+                      const targetSlide = prevPage * 3;
+                      instanceRef.current?.moveToIdx(targetSlide);
+                    }}
+                    disabled={Math.floor(currentSlide / 3) === 0}
                     className={`
                       w-12 h-12 rounded-full flex items-center justify-center
                       border border-gray-200 bg-white
                       hover:bg-gray-50 disabled:opacity-50
                       transition-all duration-200
                     `}
-                    aria-label="Previous slide"
+                    aria-label="Previous page"
                   >
                     <svg
                       className="h-6 w-6"
@@ -234,15 +259,21 @@ export function MutualFundSlider() {
                 <>
                   {/* Previous (left) arrow for LTR */}
               <button
-                onClick={() => instanceRef.current?.prev()}
-                disabled={currentSlide === 0}
+                onClick={() => {
+                  // Navigate to previous page (group of 3)
+                  const currentPage = Math.floor(currentSlide / 3);
+                  const prevPage = Math.max(currentPage - 1, 0);
+                  const targetSlide = prevPage * 3;
+                  instanceRef.current?.moveToIdx(targetSlide);
+                }}
+                disabled={Math.floor(currentSlide / 3) === 0}
                 className={`
                   w-12 h-12 rounded-full flex items-center justify-center
                   border border-gray-200 bg-white
                   hover:bg-gray-50 disabled:opacity-50
                   transition-all duration-200
                 `}
-                aria-label="Previous slide"
+                aria-label="Previous page"
               >
                 <svg
                       className="h-6 w-6"
@@ -260,15 +291,21 @@ export function MutualFundSlider() {
               </button>
                   {/* Next (right) arrow for LTR */}
               <button
-                onClick={() => instanceRef.current?.next()}
-                disabled={currentSlide >= maxSlide}
+                onClick={() => {
+                  // Navigate to next page (group of 3)
+                  const currentPage = Math.floor(currentSlide / 3);
+                  const nextPage = Math.min(currentPage + 1, maxSlide);
+                  const targetSlide = nextPage * 3;
+                  instanceRef.current?.moveToIdx(targetSlide);
+                }}
+                disabled={Math.floor(currentSlide / 3) >= maxSlide}
                 className={`
                   w-12 h-12 rounded-full flex items-center justify-center
                   bg-gradient-to-r from-[#F2D794] to-[#D0A457] text-black
                   hover:opacity-90 disabled:opacity-50
                   transition-all duration-200
                 `}
-                aria-label="Next slide"
+                aria-label="Next page"
               >
                 <svg
                   className="h-6 w-6"

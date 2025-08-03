@@ -57,15 +57,13 @@ const GlobalMarketsSection: React.FC = () => {
         </video>
       </div>
       
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
-      
       <div className="relative z-10 w-full h-full">
         <div className="h-full pt-16 pb-8 md:pt-16 lg:pt-20">
           <motion.div
             variants={contentVariants}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
-            className={`px-4 max-w-xl ${contentClasses}`}
+            className={`px-4 ${contentClasses}`}
           >
             {/* Desktop Title */}
             <h2 className={`hidden md:block text-4xl lg:text-5xl xl:text-6xl text-white whitespace-nowrap ${getTypographyClasses('title')}`}>
@@ -82,14 +80,12 @@ const GlobalMarketsSection: React.FC = () => {
 
             {/* Mobile Subtitle */}
             <div className={`block md:hidden text-white text-center mb-8 ${getTypographyClasses('body')}`} style={{ fontSize: '22px', lineHeight: '32px' }}>
-              <p>{t('globalMarkets.subtitle').split('— ')[0]}</p>
-              <p>— {t('globalMarkets.subtitle').split('— ')[1]}</p>
+              <p dangerouslySetInnerHTML={{ __html: t('globalMarkets.subtitle') }} />
             </div>
 
             {/* Desktop Subtitle */}
-            <div className={`hidden md:block text-white mt-6 max-w-[500px] ${getTypographyClasses('body')}`} style={{ fontSize: '22px', lineHeight: '32px' }}>
-              <p>{t('globalMarkets.subtitle').split('— ')[0]}</p>
-              <p>— {t('globalMarkets.subtitle').split('— ')[1]}</p>
+            <div className={`hidden md:block text-white mt-6 ${getTypographyClasses('body')}`} style={{ fontSize: '22px', lineHeight: '32px' }}>
+              <p dangerouslySetInnerHTML={{ __html: t('globalMarkets.subtitle') }} />
             </div>
 
             {/* CTA Button */}

@@ -1,32 +1,73 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion, useInView } from 'framer-motion';
 import { useTypography } from '../../hooks/useTypography';
 
 const WhyAlistithmarSection: React.FC = () => {
   const { t } = useTranslation();
   const { getTypographyClasses } = useTypography();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
+  // WebM Video Component
+  const VideoIcon: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className = "w-40 h-40 mx-auto object-contain" }) => {
+    const videoRef = useRef<HTMLVideoElement | null>(null);
+    
+    const isWebm = useMemo(() => {
+      return src.toLowerCase().endsWith('.webm');
+    }, [src]);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    useEffect(() => {
+      if (isWebm && videoRef.current) {
+        const playPromise = videoRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              console.log('✅ Video started playing for:', alt);
+            })
+            .catch((error) => {
+              console.warn('⚠️ Video play prevented for:', alt, error);
+            });
+        }
+      }
+    }, [src, isWebm, alt]);
+
+    return isWebm ? (
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        controls={false}
+        className={className}
+        onError={(e) => {
+          console.error('Video failed to load:', src);
+        }}
+        onLoadStart={() => {
+          console.log('Video loading started:', src);
+        }}
+        onCanPlay={() => {
+          console.log('Video can play:', src);
+        }}
+      >
+        <source src={src} type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
+    ) : (
+      <img 
+        src={src} 
+        alt={alt} 
+        className={className}
+        onError={(e) => {
+          console.error('Image failed to load:', src);
+        }}
+        onLoad={() => {
+          console.log('Image loaded successfully:', src);
+        }}
+      />
+    );
   };
 
   return (
     <section 
-      ref={ref}
       className="relative bg-[#221200] py-[150px] md:py-[200px] overflow-hidden"
     >
       {/* Background Image */}
@@ -36,76 +77,84 @@ const WhyAlistithmarSection: React.FC = () => {
         aria-hidden="true"
       />
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="text-center"
-        >
+        <div className="text-center">
           {/* Header */}
-          <motion.div variants={itemVariants} className="mb-16">
-            <h2 className={`text-4xl lg:text-5xl text-white mb-6 ${getTypographyClasses('title')}`}>
-              {t('whyAlistithmar.title')}
+          <div className="mb-16">
+            <h2 className={`text-4xl lg:text-[52px] text-white mb-6 ${getTypographyClasses('title')}`}>
+              {/* Split the title so 'Why' is colored same as 'Multiple Markets' */}
+              {t('whyAlistithmar.title').startsWith('Why') ? (
+                <>
+                  <span style={{ color: '#F3B660' }}>Why</span>
+                  {t('whyAlistithmar.title').slice(3)}
+                </>
+              ) : t('whyAlistithmar.title').startsWith('لماذا') ? (
+                <>
+                  <span style={{ color: '#F3B660' }}>لماذا</span>
+                  {t('whyAlistithmar.title').slice(4)}
+                </>
+              ) : (
+                t('whyAlistithmar.title')
+              )}
             </h2>
-            <p className={`text-lg text-gray-300 max-w-4xl mx-auto ${getTypographyClasses('body')}`}>
+            <p className={`text-[22px] text-gray-300 max-w-4xl mx-auto ${getTypographyClasses('body')}`}>
               {t('whyAlistithmar.subtitle')}
             </p>
-          </motion.div>
+          </div>
 
           {/* Feature Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {/* Card 1: Secure & Trusted */}
-            <motion.div variants={itemVariants} className="text-center">
+            <div className="text-center">
               <div className="mb-6">
-                <img
-                  src="/images/why1.png"
+                <VideoIcon
+                  src="/images/why-arrow.webm"
                   alt={t('whyAlistithmar.secureTitle')}
-                  className="w-20 h-20 mx-auto object-contain"
+                  className="w-40 h-40 mx-auto object-contain"
                 />
               </div>
-              <h3 className={`text-xl text-white mb-4 ${getTypographyClasses('title')}`}>
+              <h3 className={`text-[28px] text-white mb-4 ${getTypographyClasses('title')}`}>
                 {t('whyAlistithmar.secureTitle')}
               </h3>
-              <p className={`text-gray-300 leading-relaxed ${getTypographyClasses('body')}`}>
+              <p className={`text-lg text-gray-300 leading-relaxed ${getTypographyClasses('body')}`}>
                 {t('whyAlistithmar.secureDescription')}
               </p>
-            </motion.div>
+            </div>
 
             {/* Card 2: Shariah-Compliant Options */}
-            <motion.div variants={itemVariants} className="text-center">
+            <div className="text-center">
               <div className="mb-6">
-                <img
-                  src="/images/why2.png"
+                <VideoIcon
+                  src="/images/why-invest.webm"
                   alt={t('whyAlistithmar.shariaTitle')}
-                  className="w-20 h-20 mx-auto object-contain"
+                  className="w-40 h-40 mx-auto object-contain"
                 />
               </div>
-              <h3 className={`text-xl text-white mb-4 ${getTypographyClasses('title')}`}>
+              <h3 className={`text-[28px] text-white mb-4 ${getTypographyClasses('title')}`}>
                 {t('whyAlistithmar.shariaTitle')}
               </h3>
-              <p className={`text-gray-300 leading-relaxed ${getTypographyClasses('body')}`}>
+              <p className={`text-lg text-gray-300 leading-relaxed ${getTypographyClasses('body')}`}>
                 {t('whyAlistithmar.shariaDescription')}
               </p>
-            </motion.div>
+            </div>
 
             {/* Card 3: Global Reach, Local Roots */}
-            <motion.div variants={itemVariants} className="text-center">
+            <div className="text-center">
               <div className="mb-6">
-                <img
-                  src="/images/why3.png"
+                <VideoIcon
+                  src="/images/why-circle.webm"
                   alt={t('whyAlistithmar.globalTitle')}
-                  className="w-20 h-20 mx-auto object-contain"
+                  className="w-40 h-40 mx-auto object-contain"
                 />
               </div>
-              <h3 className={`text-xl text-white mb-4 ${getTypographyClasses('title')}`}>
+              <h3 className={`text-[28px] text-white mb-4 ${getTypographyClasses('title')}`}>
                 {t('whyAlistithmar.globalTitle')}
               </h3>
-              <p className={`text-gray-300 leading-relaxed ${getTypographyClasses('body')}`}>
+              <p className={`text-lg text-gray-300 leading-relaxed ${getTypographyClasses('body')}`}>
                 {t('whyAlistithmar.globalDescription')}
               </p>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

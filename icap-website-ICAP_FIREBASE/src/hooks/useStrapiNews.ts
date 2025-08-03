@@ -1,36 +1,27 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { hygraphClient } from '../utils/hygraph';
-import { GET_NEWS_ARTICLES, GET_ARTICLE_BY_SLUG } from '../utils/queries';
-import type { 
-  NewsArticle, 
-  GetNewsArticlesResponse, 
-  GetArticleBySlugResponse,
-  UseNewsDataReturn 
-} from '../types/news';
+import strapiNewsService from '../services/strapi-news-service';
+import type { NewsArticle, UseNewsDataReturn } from '../types/news';
 
-export const useNewsData = (): UseNewsDataReturn => {
+export const useStrapiNews = (): UseNewsDataReturn => {
   const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { i18n } = useTranslation();
+  
+  // Get current language, ensuring it's either 'en' or 'ar'
+  const currentLanguage = (i18n.language === 'ar' ? 'ar' : 'en') as 'en' | 'ar';
 
   const fetchArticleBySlug = useCallback(async (slug: string): Promise<NewsArticle | null> => {
     try {
-      const data: GetArticleBySlugResponse = await hygraphClient.request(
-        GET_ARTICLE_BY_SLUG,
-        { 
-          slug,
-          locale: i18n.language || 'en'
-        }
-      );
-      
-      return data.article;
+      console.log('Fetching article by slug:', slug, 'for locale:', currentLanguage);
+      const article = await strapiNewsService.getArticleBySlug(slug, currentLanguage);
+      return article;
     } catch (err) {
-      console.error('useNewsData: Failed to fetch article:', err);
+      console.error('useStrapiNews: Failed to fetch article:', err);
       throw err; // Let the component handle the error
     }
-  }, [i18n.language]);
+  }, [currentLanguage]);
 
   // Auto-fetch articles when language changes
   useEffect(() => {
@@ -39,17 +30,13 @@ export const useNewsData = (): UseNewsDataReturn => {
         setLoading(true);
         setError(null);
         
-        const data: GetNewsArticlesResponse = await hygraphClient.request(
-          GET_NEWS_ARTICLES,
-          { 
-            locale: i18n.language || 'en',
-            first: 10 
-          }
-        );
+        console.log('Fetching articles for locale:', currentLanguage);
+        const fetchedArticles = await strapiNewsService.getArticles(currentLanguage, 10);
         
-        setArticles(data.articles || []);
+        console.log('Strapi articles fetched:', fetchedArticles);
+        setArticles(fetchedArticles);
       } catch (err) {
-        console.error('Failed to fetch news articles:', err);
+        console.error('Failed to fetch news articles from Strapi:', err);
         setError(err instanceof Error ? err.message : 'Failed to fetch news articles');
       } finally {
         setLoading(false);
@@ -57,7 +44,7 @@ export const useNewsData = (): UseNewsDataReturn => {
     };
 
     fetchArticles();
-  }, [i18n.language]);
+  }, [currentLanguage]);
 
   return {
     articles,
@@ -66,4 +53,4 @@ export const useNewsData = (): UseNewsDataReturn => {
     fetchArticles: async () => {}, // Deprecated, but kept for compatibility
     fetchArticleBySlug
   };
-}; 
+};

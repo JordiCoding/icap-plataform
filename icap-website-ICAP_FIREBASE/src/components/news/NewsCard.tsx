@@ -40,7 +40,7 @@ export const NewsCard: React.FC<NewsCardProps> = ({
       <img
         src={image}
         alt={title}
-        className="w-full h-48 object-cover"
+        className="w-full aspect-video object-cover"
       />
       <div className="p-6 text-left">
         <p className={`text-sm text-gray-500 mb-2 ${getTypographyClasses('body')}`}>{formattedDate}</p>

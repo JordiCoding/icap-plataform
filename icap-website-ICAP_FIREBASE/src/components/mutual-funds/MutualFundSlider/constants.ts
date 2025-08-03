@@ -2,6 +2,36 @@ import type { Fund } from './types';
 
 export const INITIAL_FUNDS: Fund[] = [
   {
+    id: 'saudi-equity-fund',
+    title: 'Saudi Equity Fund',
+    titleAr: 'صندوق الأسهم السعودية',
+    description: 'Aims to achieve long-term capital growth through investing in Saudi equities and IPOs in the Saudi stock market.',
+    descriptionAr: 'يهدف إلى تحقيق نمو رأس المال على المدى الطويل من خلال الاستثمار في الأسهم السعودية والاكتتابات العامة في السوق السعودي.',
+    riskLevel: 'high',
+    isShariaCompliant: false,
+    icon: '/images/square.webm'
+  },
+  {
+    id: 'saudi-companies-fund',
+    title: 'Saudi Companies Fund',
+    titleAr: 'صندوق الشركات السعودية',
+    description: 'Seeks to realize long-term capital growth through investing in Shariah-compliant Saudi equities and IPOs in the Saudi stock market.',
+    descriptionAr: 'يسعى إلى تحقيق نمو رأس المال على المدى الطويل من خلال الاستثمار في الأسهم السعودية المتوافقة مع الشريعة والاكتتابات العامة في السوق السعودي.',
+    riskLevel: 'high',
+    isShariaCompliant: true,
+    icon: '/images/triangle.webm'
+  },
+  {
+    id: 'mena-equity-fund-new',
+    title: 'MENA Equity Fund',
+    titleAr: 'صندوق أسهم الشرق الأوسط وشمال أفريقيا',
+    description: 'Pursues long-term growth through diversified investments in equities listed in MENA Markets.',
+    descriptionAr: 'يسعى إلى النمو طويل المدى من خلال استثمارات متنوعة في الأسهم المدرجة في أسواق الشرق الأوسط وشمال أفريقيا.',
+    riskLevel: 'high',
+    isShariaCompliant: false,
+    icon: '/images/rombo.webm'
+  },
+  {
     id: 'diversified-fund',
     title: 'Diversified Fund',
     titleAr: 'صندوق متنوع',
@@ -60,26 +90,6 @@ export const INITIAL_FUNDS: Fund[] = [
     riskLevel: 'medium',
     isShariaCompliant: true,
     icon: '/images/triangle.webm'
-  },
-  {
-    id: 'balanced-fund',
-    title: 'Balanced Fund',
-    titleAr: 'الصندوق المتوازن',
-    description: 'Strategic allocation across multiple asset classes including equities, Sukuk, and alternative investments',
-    descriptionAr: 'توزيع استراتيجي عبر فئات أصول متعددة تشمل الأسهم والصكوك والاستثمارات البديلة',
-    riskLevel: 'medium',
-    isShariaCompliant: true,
-    icon: '/images/rombo.webm'
-  },
-  {
-    id: 'growth-fund',
-    title: 'Growth Fund',
-    titleAr: 'صندوق النمو',
-    description: 'Aggressive growth strategy focusing on emerging opportunities in the MENA region and beyond',
-    descriptionAr: 'استراتيجية نمو عدوانية تركز على الفرص الناشئة في منطقة الشرق الأوسط وشمال أفريقيا وما بعدها',
-    riskLevel: 'high',
-    isShariaCompliant: true,
-    icon: '/images/square.webm'
   }
 ];
 

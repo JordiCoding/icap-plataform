@@ -1,13 +1,14 @@
 import React, { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { motion, useInView } from 'framer-motion';
 import { useTypography } from '../../hooks/useTypography';
 
 const CtaSection: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { getTypographyClasses } = useTypography();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isArabic = i18n.language === 'ar';
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -39,23 +40,22 @@ const CtaSection: React.FC = () => {
         >
           {/* Pre-title */}
           <motion.div variants={itemVariants} className="mb-4">
-            <p className={`text-lg text-gray-600 ${getTypographyClasses('body')}`}>
+            <p className={`text-[22px] text-gray-600 ${getTypographyClasses('body')}`}>
               {t('cta.preTitle')}
             </p>
           </motion.div>
 
           {/* Main Title */}
-          <motion.div variants={itemVariants} className="mb-6">
-            <h2 className={`text-4xl lg:text-6xl font-bold text-icap-primary leading-tight ${getTypographyClasses('title')}`}>
-              {t('cta.mainTitle')}
-            </h2>
-          </motion.div>
-
-          {/* Subtitle */}
           <motion.div variants={itemVariants} className="mb-8">
-            <h3 className={`text-3xl lg:text-4xl font-medium text-[#C87D55] leading-tight ${getTypographyClasses('title')}`}>
-              {t('cta.subtitle')}
-            </h3>
+            <h2 className={`text-[52px] font-bold text-icap-primary ${isArabic ? 'leading-relaxed' : 'leading-tight'} ${getTypographyClasses('title')}`}>
+              <Trans
+                i18nKey="cta.mainTitle"
+                components={[
+                  <br />, // <0/> - line break
+                  <span className="text-[#A44F17]" />, // <1> - colored text
+                ]}
+              />
+            </h2>
           </motion.div>
 
           {/* Description */}
@@ -86,14 +86,14 @@ const CtaSection: React.FC = () => {
                 <img
                   src="/images/d-badge-app-store.svg"
                   alt="Download on the App Store"
-                  className="h-12 w-auto"
+                  className="h-14 md:h-16"
                 />
               </a>
               <a href="#" className="inline-block">
                 <img
                   src="/images/d-badge-google-play.svg"
                   alt="Get it on Google Play"
-                  className="h-12 w-auto"
+                  className="h-14 md:h-16"
                 />
               </a>
             </div>

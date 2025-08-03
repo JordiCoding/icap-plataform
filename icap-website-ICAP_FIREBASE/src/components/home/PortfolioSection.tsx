@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { motion, useInView } from 'framer-motion';
-import TextBlock from '../common/TextBlock';
+import { useTypography } from '../../hooks/useTypography';
 
 const PortfolioSection: React.FC = () => {
   const { t } = useTranslation();
+  const { getTypographyClasses } = useTypography();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -47,28 +48,30 @@ const PortfolioSection: React.FC = () => {
             animate={isInView ? 'visible' : 'hidden'}
             className="w-full lg:w-auto"
           >
-            <TextBlock
-              title={
-                <>
-                  <span className="block text-[#A44F17]">
-                    {t('portfolio.preTitle')}
-                  </span>
-                  {t('portfolio.title')}
-                </>
-              }
-              subtitle={t('portfolio.description')}
-              actions={
+            <div className="flex flex-col gap-6 text-center items-center lg:text-right lg:items-end rtl:lg:items-start">
+              <h2 className={`text-4xl lg:text-5xl font-bold text-icap-primary ${getTypographyClasses('title')}`}>
+                <span className="block text-[#A44F17]">
+                  {t('portfolio.preTitle')}
+                </span>
+                {t('portfolio.title')}
+              </h2>
+              <p className={`text-lg max-w-xl text-gray-600 ${getTypographyClasses('body')}`}>
+                <Trans
+                  i18nKey="portfolio.description"
+                  components={[<br />]}
+                />
+              </p>
+              <div className="mt-4">
                 <div className="flex justify-center lg:justify-end gap-4">
                   <a href="#">
-                    <img src="/images/d-badge-app-store.svg" alt="Download on the App Store" className="h-12" />
+                    <img src="/images/d-badge-app-store.svg" alt="Download on the App Store" className="h-14 md:h-16" />
                   </a>
                   <a href="#">
-                    <img src="/images/d-badge-google-play.svg" alt="Get it on Google Play" className="h-12" />
+                    <img src="/images/d-badge-google-play.svg" alt="Get it on Google Play" className="h-14 md:h-16" />
                   </a>
                 </div>
-              }
-              className="text-center items-center lg:text-right lg:items-end rtl:lg:items-start"
-            />
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
