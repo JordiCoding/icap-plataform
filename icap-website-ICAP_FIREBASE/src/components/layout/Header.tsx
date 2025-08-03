@@ -5,7 +5,7 @@ import { useTypography } from '../../hooks/useTypography';
 import MobileNav from './MobileNav';
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
-import { useCmsData } from '../../hooks/useCmsData';
+// import { useCmsData } from '../../hooks/useCmsData'; // Disabled after Hygraph removal
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const { getTypographyClasses } = useTypography();

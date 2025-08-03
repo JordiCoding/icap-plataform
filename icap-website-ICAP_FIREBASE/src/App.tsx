@@ -11,7 +11,7 @@ import { usePromotionPopup } from './hooks/usePromotionPopup';
 import './utils/i18n'; // Initialize i18n
 
 function App() {
-  const { popup, isVisible, closePopup, loading, error } = usePromotionPopup();
+  const { popup, isVisible, closePopup } = usePromotionPopup();
 
   return (
     <Layout>

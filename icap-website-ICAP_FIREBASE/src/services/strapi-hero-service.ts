@@ -1,7 +1,7 @@
 // Strapi Hero Content API Service
 // This service will replace the Hygraph integration for Hero content
 
-const STRAPI_URL = 'http://localhost:1337';
+const STRAPI_URL = import.meta.env.VITE_STRAPI_URL || 'http://localhost:1337';
 const API_URL = `${STRAPI_URL}/api`;
 
 interface HeroContent {

@@ -16,13 +16,13 @@ interface Article {
   };
 }
 
-interface GraphQLResponse {
-  article: Article;
-}
+// interface GraphQLResponse {
+//   article: Article;
+// }
 
 const NewsDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const { getTypographyClasses } = useTypography();
   const { fetchArticleBySlug } = useStrapiNews();
   const [article, setArticle] = useState<Article | null>(null);
