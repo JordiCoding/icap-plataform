@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation, Trans } from 'react-i18next';
 
 const BrokerageProducts: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative">
       {/* Background Image */}
@@ -14,25 +16,28 @@ const BrokerageProducts: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6"
-            style={{ fontFamily: 'Chap, sans-serif', fontSize: '52px' }}
+            className="section-title text-black mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <span className="text-[#A44F17]">Trading</span> Opportunities Across Markets
+            <Trans
+              i18nKey="brokerageProducts.title"
+              components={[
+                <span className="text-[#A44F17]" key="highlight" />
+              ]}
+            />
           </motion.h2>
           
           <motion.p
-            className="text-lg md:text-xl text-black max-w-3xl mx-auto leading-relaxed"
-            style={{ fontFamily: 'Jokker Light, sans-serif', fontSize: '22px' }}
+            className="section-subtitle text-black max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Whether you're looking to invest in Saudi equities or diversify globally, we provide the tools and access you need to trade with confidence.
+            {t('brokerageProducts.subtitle')}
           </motion.p>
         </div>
 
@@ -46,11 +51,11 @@ const BrokerageProducts: React.FC = () => {
               
             }}
           >
-            <h3 className="text-white mb-6" style={{ fontFamily: 'Chap, sans-serif', fontSize: '40px', fontWeight: 'bold', lineHeight: '1.2' }}>
-              Local Market
+            <h3 className="card-title text-white mb-6" style={{ fontSize: '40px', fontWeight: 'bold', lineHeight: '1.2' }}>
+              {t('brokerageProducts.localMarket.title')}
             </h3>
-            <p className="text-white leading-relaxed flex-1 mb-8" style={{ fontFamily: 'Jokker Light, sans-serif', fontSize: '18px', lineHeight: '1.6' }}>
-              Access Tadawul-listed equities, sukuk, and IPOs with powerful tools and real-time insights tailored to local investors.
+            <p className="card-subtitle text-white leading-relaxed flex-1 mb-8" style={{ fontSize: '18px', lineHeight: '1.6' }}>
+              {t('brokerageProducts.localMarket.description')}
             </p>
             <button className="w-12 h-12 bg-[#F2D794] rounded-lg flex items-center justify-center">
               <svg className="w-6 h-6 text-[#1D1306]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -67,11 +72,11 @@ const BrokerageProducts: React.FC = () => {
             
             }}
           >
-            <h3 className="text-white mb-6" style={{ fontFamily: 'Chap, sans-serif', fontSize: '40px', fontWeight: 'bold', lineHeight: '1.2' }}>
-              International Market
+            <h3 className="card-title text-white mb-6" style={{ fontSize: '40px', fontWeight: 'bold', lineHeight: '1.2' }}>
+              {t('brokerageProducts.internationalMarket.title')}
             </h3>
-            <p className="text-white leading-relaxed flex-1 mb-8" style={{ fontFamily: 'Jokker Light, sans-serif', fontSize: '18px', lineHeight: '1.6' }}>
-              Tap into global exchanges with a single platform. Explore stocks, ETFs, and more across major international markets with ease.
+            <p className="card-subtitle text-white leading-relaxed flex-1 mb-8" style={{ fontSize: '18px', lineHeight: '1.6' }}>
+              {t('brokerageProducts.internationalMarket.description')}
             </p>
             <button className="w-12 h-12 bg-[#F2D794] rounded-lg flex items-center justify-center">
               <svg className="w-6 h-6 text-[#1D1306]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,11 +94,11 @@ const BrokerageProducts: React.FC = () => {
               
             }}
           >
-            <h3 className="text-white mb-6" style={{ fontFamily: 'Chap, sans-serif', fontSize: '40px', fontWeight: 'bold', lineHeight: '1.2' }}>
-              Margin Lending
+            <h3 className="card-title text-white mb-6" style={{ fontSize: '40px', fontWeight: 'bold', lineHeight: '1.2' }}>
+              {t('brokerageProducts.marginLending.title')}
             </h3>
-            <p className="text-white leading-relaxed flex-1 mb-8" style={{ fontFamily: 'Jokker Light, sans-serif', fontSize: '18px', lineHeight: '1.6' }}>
-              A diversified mix of Sharia-compliant Sukuk, fixed income, trade finance, money market instruments, and similar funds.
+            <p className="card-subtitle text-white leading-relaxed flex-1 mb-8" style={{ fontSize: '18px', lineHeight: '1.6' }}>
+              {t('brokerageProducts.marginLending.description')}
             </p>
             <button className="w-12 h-12 bg-[#F2D794] rounded-lg flex items-center justify-center">
               <svg className="w-6 h-6 text-[#1D1306]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

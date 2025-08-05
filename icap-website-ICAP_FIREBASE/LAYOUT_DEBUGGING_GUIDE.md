@@ -111,6 +111,37 @@ const layoutClasses = isArabic
 5. Look for max-width, max-w-*, or flex constraints up the tree
 ```
 
+#### **Debug Border Analysis for Text Constraints:**
+```tsx
+// Add debug borders to trace text constraint issues
+<div style={{ border: '2px solid red' }}>           {/* Check if this constrains */}
+  <div style={{ border: '2px solid blue' }}>        {/* Check max-width here */}
+    <div style={{ border: '2px solid green' }}>     {/* Check positioning */}
+      <p style={{ border: '2px solid orange' }}>    {/* Text element - should be free */}
+        {t('subtitle')} {/* Check if text expands to orange border */}
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+#### **Common Text Constraint Patterns:**
+```tsx
+// ❌ HIDDEN CONSTRAINT - Parent container limits width
+<motion.div className="px-4 max-w-xl"> {/* ← 576px limit! */}
+  <div className="text-white"> {/* ← Removed max-width here */}
+    <p dangerouslySetInnerHTML={{ __html: t('subtitle') }} /> {/* Still constrained! */}
+  </div>
+</motion.div>
+
+// ✅ SOLUTION - Remove parent constraint
+<motion.div className="px-4"> {/* ← No width limit */}
+  <div className="text-white">
+    <p dangerouslySetInnerHTML={{ __html: t('subtitle') }} /> {/* Now free! */}
+  </div>
+</motion.div>
+```
+
 #### **Common Root Cause:**
 ```tsx
 // ❌ HIDDEN CONSTRAINT - Parent container limits width
@@ -141,6 +172,78 @@ const layoutClasses = isArabic
 □ Motion/animation wrappers
 □ Layout containers
 □ Section containers
+```
+
+### **2.4 Image Flip vs Text Positioning Conflicts**
+
+#### **Problem Signs:**
+- Image flip affects text positioning
+- Text moves when image flips
+- RTL layout breaks when image is flipped
+- Can't separate image orientation from text layout
+
+#### **Debug Process:**
+```bash
+1. Identify if image flip is affecting container layout
+2. Check if transform: scaleX(-1) is applied to wrong container
+3. Verify text positioning logic is independent
+4. Test image flip and text positioning separately
+```
+
+#### **Root Cause Analysis:**
+```tsx
+// ❌ WRONG - Image flip affects entire container
+<div style={{ transform: isArabic ? 'scaleX(-1)' : 'none' }}>
+  <div className="ml-auto text-right"> {/* ← Affected by parent flip */}
+    <h1>Arabic Text</h1>
+  </div>
+</div>
+
+// ✅ CORRECT - Separate image flip from content positioning
+<div style={{ transform: isArabic ? 'scaleX(-1)' : 'none' }}> {/* ← Image flip */}
+  <div style={{ transform: isArabic ? 'scaleX(-1)' : 'none' }}> {/* ← Counter-flip content */}
+    <div className="ml-auto text-right"> {/* ← Independent positioning */}
+      <h1>Arabic Text</h1>
+    </div>
+  </div>
+</div>
+```
+
+#### **Solution Pattern:**
+```tsx
+// ✅ CLEAN SEPARATION OF CONCERNS
+const isArabic = i18n.language === 'ar';
+
+return (
+  <div 
+    className="relative h-screen bg-cover bg-center flex items-center"
+    style={{ 
+      backgroundImage: 'url(/images/background.png)',
+      transform: isArabic ? 'scaleX(-1)' : 'none' // ← Image flip only
+    }}
+  >
+    {/* Content container - independent from image flip */}
+    <div 
+      className="relative z-10 w-full max-w-7xl mx-auto px-4"
+      style={{ 
+        transform: isArabic ? 'scaleX(-1)' : 'none' // ← Counter-flip content
+      }}
+    >
+      <div className={`max-w-2xl ${isArabic ? 'ml-auto text-right' : 'text-left'}`}>
+        <h1>Content positioned independently</h1>
+      </div>
+    </div>
+  </div>
+);
+```
+
+#### **Key Principles:**
+```bash
+□ Image flip should only affect background image
+□ Text positioning should be independent
+□ Use counter-transform to keep content normal
+□ Test image flip and text positioning separately
+□ Keep positioning logic simple and clear
 ```
 
 ### **2.4 Responsive Image Conflicts**
@@ -278,12 +381,48 @@ const textClasses = isArabic ? 'text-right' : 'text-left';
 
 ## 🎯 **QUICK REFERENCE COMMANDS**
 
+### **Debug Border Quick Start:**
+```tsx
+// Add these borders to any component to visualize constraints
+<div style={{ border: '2px solid red' }}>     {/* Main container */}
+  <div style={{ border: '2px solid blue' }}>  {/* Content wrapper */}
+    <div style={{ border: '2px solid green' }}> {/* Text container */}
+      <h1 style={{ border: '2px solid yellow' }}>Title</h1>
+      <p style={{ border: '2px solid orange' }}>Subtitle</p>
+    </div>
+  </div>
+</div>
+```
+
 ### **Browser DevTools Shortcuts:**
 ```bash
 F12 - Open DevTools
 Ctrl+Shift+C - Inspect Element
 Ctrl+Shift+M - Toggle Device Toolbar
 Ctrl+Shift+I - Toggle DevTools
+```
+
+### **Debug Border Technique (Recommended):**
+```tsx
+// Add colored borders to visualize container constraints
+<div style={{ border: '2px solid red' }}>     {/* Main container */}
+  <div style={{ border: '2px solid blue' }}>  {/* Content wrapper */}
+    <div style={{ border: '2px solid green' }}> {/* Text container */}
+      <h1 style={{ border: '2px solid yellow' }}>Title</h1>
+      <p style={{ border: '2px solid orange' }}>Subtitle</p>
+    </div>
+  </div>
+</div>
+```
+
+### **Color-Coded Debug Borders:**
+```tsx
+// 🔴 Red: Main container (full screen/hero)
+// 🔵 Blue: Content wrapper (max-width constraints)
+// 🟢 Green: Text container (positioning)
+// 🟡 Yellow: Title element
+// 🟠 Orange: Subtitle/description element
+// 🟣 Purple: Button/CTA element
 ```
 
 ### **Common CSS Debugging:**

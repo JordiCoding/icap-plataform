@@ -26,6 +26,22 @@ html[dir="rtl"] {
   font-family: var(--font-family-arabic);
 }
 
+/* Custom Font Classes for Typography System */
+.font-jokker-light {
+  font-family: 'Jokker', sans-serif;
+  font-weight: 300;
+}
+
+.font-jokker-regular {
+  font-family: 'Jokker', sans-serif;
+  font-weight: 400;
+}
+
+.font-jokker-semibold {
+  font-family: 'Jokker', sans-serif;
+  font-weight: 600;
+}
+
 /* Glassmorphism Card Styles */
 .glassmorphism-card {
   background: rgba(255, 255, 255, 0.10);
@@ -107,4 +123,46 @@ html[dir="rtl"] {
 
 .section-container {
   @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Slide Title Typography Classes */
+.slide-title {
+  @apply text-[52px] font-light mb-4;
+  font-family: "Chap", sans-serif;
+}
+
+.slide-title-highlight {
+  color: #FADD96;
+}
+
+.slide-subtitle {
+  @apply text-[22px];
+  font-family: "Jokker", sans-serif;
+}
+
+/* Arabic Slide Title Typography Classes */
+html[dir="rtl"] .slide-title {
+  font-family: "Almarai", sans-serif;
+}
+
+html[dir="rtl"] .slide-subtitle {
+  font-family: "Riada", sans-serif;
+}
+
+/* Arabic Section Typography Classes */
+html[dir="rtl"] .section-title {
+  font-family: "Almarai", sans-serif;
+}
+
+html[dir="rtl"] .section-subtitle {
+  font-family: "Riada", sans-serif;
+}
+
+/* Arabic Card Typography Classes */
+html[dir="rtl"] .card-title {
+  font-family: "Almarai", sans-serif;
+}
+
+html[dir="rtl"] .card-subtitle {
+  font-family: "Riada", sans-serif;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -76,11 +76,16 @@ const SlidePlatformAccess: React.FC = () => {
       >
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: 'Chap Light' }}>
-            Your Portfolio Always by Your Side
+          <h2 className="slide-title text-white">
+            <Trans
+              i18nKey="slidePlatformAccess.title"
+              components={[
+                <span className="slide-title-highlight" key="highlight" />
+              ]}
+            />
           </h2>
-          <p className="text-gray-300 text-lg" style={{ fontFamily: 'Jokker Regular' }}>
-            One platform, many ways to trade. All in your control.
+          <p className="slide-subtitle text-white">
+            {t('slidePlatformAccess.subtitle')}
           </p>
         </div>
 

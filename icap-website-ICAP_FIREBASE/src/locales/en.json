@@ -161,7 +161,7 @@
     "recommendedArticles": "Recommended Articles"
   },
   "slidePlatformAccess": {
-    "title": "Your Portfolio Always<0/>by Your Side",
+    "title": "Your Portfolio <0>Always by Your Side</0>",
     "subtitle": "One platform, many ways to trade. All in your control.",
     "mobileApp": {
       "title": "Mobile<0/>Application",
@@ -182,6 +182,28 @@
       "title": "Trading<0/>Terminal",
       "subtitle": "Installed on desktops for<0/>speed, depth, and<0/>precision.",
       "button": "Install Terminal"
+    }
+  },
+  "brokerageHero": {
+    "title": "Brokerage Services<0/>Designed for Your<0/>Ambitions",
+    "subtitle": "Trade with confidence. Our platform supports every investor with<0/>real-time data, smart tools, and expert guidance.",
+    "description": "Access Saudi and global markets with ease.<0/>Whether you're a beginner or a seasoned trader,<0/>our platform offers the tools, insights, and support<0/>you need to invest confidently.",
+    "button": "Open an Account"
+  },
+  "brokerageProducts": {
+    "title": "<0>Trading</0> Opportunities Across Markets",
+    "subtitle": "Whether you're looking to invest in Saudi equities or diversify globally, we provide the tools and access you need to trade with confidence.",
+    "localMarket": {
+      "title": "Local Market",
+      "description": "Access Tadawul-listed equities, sukuk, and IPOs with powerful tools and real-time insights tailored to local investors."
+    },
+    "internationalMarket": {
+      "title": "International Market",
+      "description": "Tap into global exchanges with a single platform. Explore stocks, ETFs, and more across major international markets with ease."
+    },
+    "marginLending": {
+      "title": "Margin Lending",
+      "description": "A diversified mix of Sharia-compliant Sukuk, fixed income, trade finance, money market instruments, and similar funds."
     }
   }
 } 
