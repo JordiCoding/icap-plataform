@@ -93,6 +93,28 @@
     "medium": "Medium Risk",
     "high": "High Risk"
   },
+  "gridCard": {
+    "mobileApp": {
+      "title": "Mobile<0/>Application",
+      "subtitle": "Stay connected to your<0/>portfolio anytime, anywhere.",
+      "button": "Get App"
+    },
+    "webPlatform": {
+      "title": "Web Platform",
+      "subtitle": "Seamless, secure, and always available<0/>from any browser.",
+      "button": "Launch Web"
+    },
+    "directPhone": {
+      "title": "Direct Phone Line",
+      "subtitle": "Execute trades through phone with expert<0/>support.",
+      "button": "Call Expert"
+    },
+    "tradingTerminal": {
+      "title": "Trading<0/>Terminal",
+      "subtitle": "Installed on desktops for<0/>speed, depth,<0/>and precision.",
+      "button": "Install Terminal"
+    }
+  },
   "mutualFunds": {
     "riskLevel": "Risk Level",
     "risk": {
@@ -137,5 +159,29 @@
   },
   "news": {
     "recommendedArticles": "Recommended Articles"
+  },
+  "slidePlatformAccess": {
+    "title": "Your Portfolio Always<0/>by Your Side",
+    "subtitle": "One platform, many ways to trade. All in your control.",
+    "mobileApp": {
+      "title": "Mobile<0/>Application",
+      "subtitle": "Stay connected to your<0/>portfolio anytime, anywhere.",
+      "button": "Get App"
+    },
+    "webPlatform": {
+      "title": "Web Platform",
+      "subtitle": "Seamless, secure, and always available<0/>from any browser.",
+      "button": "Launch Web"
+    },
+    "directPhone": {
+      "title": "Direct Phone Line",
+      "subtitle": "Execute trades through phone with expert<0/>support.",
+      "button": "Call Expert"
+    },
+    "tradingTerminal": {
+      "title": "Trading<0/>Terminal",
+      "subtitle": "Installed on desktops for<0/>speed, depth, and<0/>precision.",
+      "button": "Install Terminal"
+    }
   }
 } 

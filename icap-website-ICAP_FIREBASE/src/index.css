@@ -25,3 +25,86 @@ html {
 html[dir="rtl"] {
   font-family: var(--font-family-arabic);
 }
+
+/* Glassmorphism Card Styles */
+.glassmorphism-card {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 32px;
+  padding: 24px;
+}
+
+.glassmorphism-card .card-title {
+  color: white;
+}
+
+.glassmorphism-card .card-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.glassmorphism-card-with-image {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+/* Flat Card Styles */
+.flat-card {
+  background: #FBF7F1;
+  border-radius: 32px;
+  padding: 24px;
+}
+
+.flat-card .card-title {
+  color: #A44F17 !important;
+}
+
+.flat-card .card-subtitle {
+  color: #333333;
+}
+
+.flat-card .card-button {
+  color: #A44F17;
+}
+
+/* Card Content Typography Classes */
+.card-title {
+  @apply text-[28px] font-light mb-4;
+  font-family: "Chap", sans-serif;
+}
+
+.card-subtitle {
+  @apply text-[16px] opacity-80 mb-6;
+  font-family: "Jokker", sans-serif;
+}
+
+.card-button {
+  @apply w-fit;
+}
+
+/* Card Layout Classes */
+.card-content-compact {
+  @apply flex flex-col;
+}
+
+.card-content-spaced {
+  @apply flex flex-col justify-between;
+}
+
+/* Section Typography Classes */
+.section-title {
+  @apply text-[52px] font-light mb-4;
+}
+
+.section-subtitle {
+  @apply text-[22px] opacity-80;
+}
+
+.section-container {
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
