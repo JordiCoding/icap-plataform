@@ -77,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({ background, position = 'absolute' }) =>
               </Link>
               <nav className="hidden md:flex items-center gap-6">
                 <NavLink href="/brokerage">{t('navigation.brokerage')}</NavLink>
-                <NavLink href="#">{t('navigation.assetManagment')}</NavLink>
+                <NavLink href="/asset-management">{t('navigation.assetManagment')}</NavLink>
                 <NavLink href="/investment-banking">{t('navigation.investmentBanking')}</NavLink>
                 <NavLink href="/real-estate">{t('navigation.realEstate')}</NavLink>
                 <NavLink href="/about">{t('navigation.about')}</NavLink>

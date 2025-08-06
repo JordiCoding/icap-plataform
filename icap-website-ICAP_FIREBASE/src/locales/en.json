@@ -154,6 +154,11 @@
   },
   "breadcrumb": {
     "home": "Home",
+    "brokerage": "Brokerage",
+    "local-market": "Local Market",
+    "international-markets": "International Markets",
+    "margin-lending": "Margin Lending",
+    "asset-management": "Asset Management",
     "newsroom": "Newsroom",
     "article": "Article"
   },
@@ -204,6 +209,35 @@
     "marginLending": {
       "title": "Margin Lending",
       "description": "A diversified mix of Sharia-compliant Sukuk, fixed income, trade finance, money market instruments, and similar funds."
+    }
+  },
+  "localMarket": {
+    "hero": {
+      "title": "Trade in Saudi<br/>Market",
+      "subtitle": "Invest in TASI, NOMU, and Sukuk with real-time data<br/>and powerful tools. Always within reach, through<br/>our mobile app or web platform.<br/>",
+      "button": "Start Trading"
+    }
+  },
+  "internationalMarkets": {
+    "hero": {
+      "title": "Invest Beyond Borders",
+      "subtitle": "Access top global markets with confidence. Trade US, GCC and Egypt<br/>stocks, ETFs, bonds and many more.",
+      "primaryButton": "Open Account",
+      "secondaryButton": "Download App"
+    }
+  },
+  "marginLending": {
+    "hero": {
+      "title": "Maximize Your<br/>Investments with<br/>Margin Lending<br/>",
+      "subtitle": "Flexible financing solutions designed to give you<br/>seamless access to capital when you need it.",
+      "button": "Explore Solutions"
+    }
+  },
+  "assetManagement": {
+    "hero": {
+      "title": "Alistithmar Asset<br/>Management",
+      "subtitle": "At Alistithmar Capital, our Asset Management Division tailors every<br/>strategy around your success.",
+      "button": "Learn More"
     }
   }
 } 

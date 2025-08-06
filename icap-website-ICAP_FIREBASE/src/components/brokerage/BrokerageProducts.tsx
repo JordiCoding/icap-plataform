@@ -1,9 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation, Trans } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 const BrokerageProducts: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  
+  const handleCardClick = (route: string) => {
+    navigate(route);
+  };
+  
+  const handleKeyPress = (event: React.KeyboardEvent, route: string) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      navigate(route);
+    }
+  };
+  
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative">
       {/* Background Image */}
@@ -44,12 +58,17 @@ const BrokerageProducts: React.FC = () => {
         {/* Cards Container */}
         <div className="flex justify-center items-start gap-6 group">
           {/* Local Market Card */}
-          <div className="w-[360px] h-[550px] rounded-[32px] flex flex-col p-8 hover:scale-[1.05] group-hover:scale-[0.98] transition-transform duration-300 cursor-pointer relative overflow-hidden"
+          <div 
+            className="w-[360px] h-[550px] rounded-[32px] flex flex-col p-8 hover:scale-[1.05] group-hover:scale-[0.98] transition-transform duration-300 cursor-pointer relative overflow-hidden"
             style={{
               backgroundImage: 'url(/images/localmarketasset.png)',
               backgroundSize: 'cover',
-              
             }}
+            onClick={() => handleCardClick('/local-market')}
+            onKeyPress={(e) => handleKeyPress(e, '/local-market')}
+            tabIndex={0}
+            role="button"
+            aria-label={`Navigate to ${t('brokerageProducts.localMarket.title')} page`}
           >
             <h3 className="card-title text-white mb-6" style={{ fontSize: '40px', fontWeight: 'bold', lineHeight: '1.2' }}>
               {t('brokerageProducts.localMarket.title')}
@@ -65,12 +84,17 @@ const BrokerageProducts: React.FC = () => {
           </div>
 
           {/* International Market Card */}
-          <div className="w-[360px] h-[550px] rounded-[32px] flex flex-col p-8 hover:scale-[1.05] group-hover:scale-[0.98] transition-transform duration-300 cursor-pointer relative overflow-hidden"
+          <div 
+            className="w-[360px] h-[550px] rounded-[32px] flex flex-col p-8 hover:scale-[1.05] group-hover:scale-[0.98] transition-transform duration-300 cursor-pointer relative overflow-hidden"
             style={{
               backgroundImage: 'url(/images/intermarketasset.png)',
               backgroundSize: 'cover',
-            
             }}
+            onClick={() => handleCardClick('/international-markets')}
+            onKeyPress={(e) => handleKeyPress(e, '/international-markets')}
+            tabIndex={0}
+            role="button"
+            aria-label={`Navigate to ${t('brokerageProducts.internationalMarket.title')} page`}
           >
             <h3 className="card-title text-white mb-6" style={{ fontSize: '40px', fontWeight: 'bold', lineHeight: '1.2' }}>
               {t('brokerageProducts.internationalMarket.title')}
@@ -86,13 +110,17 @@ const BrokerageProducts: React.FC = () => {
           </div>
 
           {/* Margin Lending Card */}
-          <div className="w-[360px] h-[550px] rounded-[32px] flex flex-col p-8 hover:scale-[1.05] group-hover:scale-[0.98] transition-transform duration-300 cursor-pointer relative overflow-hidden"
+          <div 
+            className="w-[360px] h-[550px] rounded-[32px] flex flex-col p-8 hover:scale-[1.05] group-hover:scale-[0.98] transition-transform duration-300 cursor-pointer relative overflow-hidden"
             style={{
               backgroundImage: 'url(/images/marginasset.png)',
               backgroundSize: 'cover',
-              
-              
             }}
+            onClick={() => handleCardClick('/margin-lending')}
+            onKeyPress={(e) => handleKeyPress(e, '/margin-lending')}
+            tabIndex={0}
+            role="button"
+            aria-label={`Navigate to ${t('brokerageProducts.marginLending.title')} page`}
           >
             <h3 className="card-title text-white mb-6" style={{ fontSize: '40px', fontWeight: 'bold', lineHeight: '1.2' }}>
               {t('brokerageProducts.marginLending.title')}

@@ -83,8 +83,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
       </button>
       
       <div className="flex flex-col items-center justify-center h-full gap-8 p-8">
-        <MobileNavLink to="#" onClick={onClose}>{t('navigation.brokerage')}</MobileNavLink>
-        <MobileNavLink to="#" onClick={onClose}>{t('navigation.assetManagment')}</MobileNavLink>
+        <MobileNavLink to="/brokerage" onClick={onClose}>{t('navigation.brokerage')}</MobileNavLink>
+        <MobileNavLink to="/asset-management" onClick={onClose}>{t('navigation.assetManagment')}</MobileNavLink>
         <MobileNavLink to="/investment-banking" onClick={onClose}>{t('navigation.investmentBanking')}</MobileNavLink>
         <MobileNavLink to="/real-estate" onClick={onClose}>{t('navigation.realEstate')}</MobileNavLink>
         <MobileNavLink to="/about" onClick={onClose}>{t('navigation.about')}</MobileNavLink>

@@ -1,11 +1,22 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { useTypography } from '../../hooks/useTypography';
 
-const FooterLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
+const FooterLink = ({ href, children, isInternal = false }: { href: string; children: React.ReactNode; isInternal?: boolean }) => {
   const { getTypographyClasses } = useTypography();
+  const linkClasses = `text-gray-300 hover:text-white transition-colors duration-200 block ${getTypographyClasses('body')}`;
+  
+  if (isInternal) {
+    return (
+      <Link to={href} className={linkClasses}>
+        {children}
+      </Link>
+    );
+  }
+  
   return (
-    <a href={href} className={`text-gray-300 hover:text-white transition-colors duration-200 block ${getTypographyClasses('body')}`}>
+    <a href={href} className={linkClasses}>
       {children}
     </a>
   );
@@ -42,9 +53,9 @@ const Footer: React.FC = () => {
           {/* Services */}
           <div className="lg:col-span-2 space-y-5">
             <h3 className={`text-lg font-semibold text-white mb-6 ${getTypographyClasses('title')}`}>{t('footer.services')}</h3>
-            <FooterLink href="#">{t('footer.localBrokerage')}</FooterLink>
-            <FooterLink href="#">{t('footer.globalBrokerage')}</FooterLink>
-            <FooterLink href="#">{t('footer.marginLending')}</FooterLink>
+            <FooterLink href="/local-market" isInternal={true}>{t('footer.localBrokerage')}</FooterLink>
+            <FooterLink href="/international-markets" isInternal={true}>{t('footer.globalBrokerage')}</FooterLink>
+            <FooterLink href="/margin-lending" isInternal={true}>{t('footer.marginLending')}</FooterLink>
             <FooterLink href="#">{t('footer.portfolioManagment')}</FooterLink>
             <FooterLink href="#">{t('footer.mutualFunds')}</FooterLink>
             <FooterLink href="#">{t('footer.investmentBanking')}</FooterLink>

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation, Trans } from 'react-i18next';
 import Button from '../ui/Button';
+import Breadcrumbs from './Breadcrumbs';
 
 export interface HeroProps {
   // Content
@@ -9,6 +10,10 @@ export interface HeroProps {
   subtitle?: string;
   ctaText?: string;
   ctaLink?: string;
+  
+  // Secondary button
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
   
   // Background
   backgroundType: 'image' | 'video';
@@ -36,6 +41,10 @@ export interface HeroProps {
   titleClassName?: string;
   subtitleClassName?: string;
   containerClassName?: string;
+  
+  // Breadcrumbs
+  showBreadcrumbs?: boolean;
+  breadcrumbs?: { label: string; href?: string }[];
 }
 
 const containerVariants = {
@@ -58,6 +67,8 @@ const ReusableHero: React.FC<HeroProps> = ({
   subtitle,
   ctaText,
   ctaLink,
+  secondaryCtaText,
+  secondaryCtaLink,
   backgroundType,
   backgroundSrc,
   backgroundFallback,
@@ -71,6 +82,8 @@ const ReusableHero: React.FC<HeroProps> = ({
   titleClassName = '',
   subtitleClassName = '',
   containerClassName = '',
+  showBreadcrumbs = false,
+  breadcrumbs,
 }) => {
   const { t, i18n } = useTranslation();
   const isArabic = i18n.language === 'ar';
@@ -209,6 +222,10 @@ const ReusableHero: React.FC<HeroProps> = ({
           animate={enableAnimations ? "visible" : undefined}
           className={`${getLayoutClasses()}`}
         >
+          {/* Breadcrumbs */}
+          {showBreadcrumbs && (
+            <Breadcrumbs rtl={isArabic} breadcrumbs={breadcrumbs} />
+          )}
           <MotionTitle
             className={`${getTitleTypographyClasses()} ${getLineHeightClasses()} ${titleClassName}`}
             variants={enableAnimations ? itemVariants : undefined}
@@ -244,16 +261,30 @@ const ReusableHero: React.FC<HeroProps> = ({
             </MotionSubtitle>
           )}
           
-          {ctaText && (
+          {(ctaText || secondaryCtaText) && (
             <MotionCTA variants={enableAnimations ? itemVariants : undefined}>
-              <Button 
-                variant="primary" 
-                className="text-lg px-8 py-4"
-                as={ctaLink ? 'a' : 'button'}
-                {...(ctaLink ? { href: ctaLink } : {})}
-              >
-                {ctaText}
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                {ctaText && (
+                  <Button 
+                    variant="primary" 
+                    className="text-lg px-8 py-4"
+                    as={ctaLink ? 'a' : 'button'}
+                    {...(ctaLink ? { href: ctaLink } : {})}
+                  >
+                    {ctaText}
+                  </Button>
+                )}
+                {secondaryCtaText && (
+                  <Button 
+                    variant="secondary" 
+                    className="text-lg px-8 py-4"
+                    as={secondaryCtaLink ? 'a' : 'button'}
+                    {...(secondaryCtaLink ? { href: secondaryCtaLink } : {})}
+                  >
+                    {secondaryCtaText}
+                  </Button>
+                )}
+              </div>
             </MotionCTA>
           )}
         </MotionWrapper>
