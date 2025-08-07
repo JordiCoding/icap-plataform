@@ -68,7 +68,7 @@
     "title": "Always Within Reach",
     "description": "Invest, trade and grow your wealth<0/>seamlessly with the ICAP app."
   },
-  "marginLending": {
+  "marginLendingHome": {
     "title": "Increase Your Buying<1/>Power with<1/><0>Margin Lending</0>",
     "subtitle": "<0>Enhance your trading potential</0> with secure,<1/>flexible, and Sharia-compliant margin<1/>financing from <2>Alistithmar Capital</2>.",
     "button": "Learn More"
@@ -158,6 +158,8 @@
     "local-market": "Local Market",
     "international-markets": "International Markets",
     "margin-lending": "Margin Lending",
+    "real-estate": "Real Estate",
+    "investment-banking": "Investment Banking",
     "asset-management": "Asset Management",
     "newsroom": "Newsroom",
     "article": "Article"
@@ -216,6 +218,26 @@
       "title": "Trade in Saudi<br/>Market",
       "subtitle": "Invest in TASI, NOMU, and Sukuk with real-time data<br/>and powerful tools. Always within reach, through<br/>our mobile app or web platform.<br/>",
       "button": "Start Trading"
+    },
+    "localProducts": {
+      "title": "Local Investment Products",
+      "subtitle": "Step into a diverse world of investments, trade confidently in a market you trust.",
+      "card1": {
+        "title": "Equity<0/>Investments",
+        "subtitle": "Invest in listed stocks<0/>and ETFs across TASI and<0/>NOMU for diversified<0/>exposure to the Saudi<0/>market."
+      },
+      "card2": {
+        "title": "Fixed Income<0/>And Sukuk",
+        "subtitle": "Access a range of Sharia-compliant Sukuk<0/>and fixed income instruments for stable,<0/>income-generating opportunities."
+      },
+      "card3": {
+        "title": "Public<0/>Offerings",
+        "subtitle": "Participate in IPOs and secondary<0/>offerings to tap into new market<0/>opportunities."
+      },
+      "card4": {
+        "title": "Alternative &<0/>Short-Term<0/>Investments",
+        "subtitle": "Real Estate Investment<0/>Traded Funds (REITs),<0/>Exchange Traded Funds (ETFs)<0/>and Close-ended Investment<0/>Traded Funds (CEFs)."
+      }
     }
   },
   "internationalMarkets": {
@@ -224,6 +246,26 @@
       "subtitle": "Access top global markets with confidence. Trade US, GCC and Egypt<br/>stocks, ETFs, bonds and many more.",
       "primaryButton": "Open Account",
       "secondaryButton": "Download App"
+    },
+    "tradeGlobalMarkets": {
+      "title": "All You Need to Trade Global Markets",
+      "subtitle": "Access features you need to analyze, act, and stay ahead in international markets.",
+      "card1": {
+        "title": "Real-time<0/>Data",
+        "subtitle": "Get real-time data and<0/>act the moment<0/>opportunity shows up."
+      },
+      "card2": {
+        "title": "Margin<0/>Lending",
+        "subtitle": "Use margin to boost your buying<0/>power and go after higher returns."
+      },
+      "card3": {
+        "title": "Pre & Post<0/>Market Trading",
+        "subtitle": "Place orders before the market opens<0/>and stay one step ahead."
+      },
+      "card4": {
+        "title": "Stop<0/>Orders",
+        "subtitle": "Set smart triggers to take profit<0/>or limit losses, no more second<0/>guessing."
+      }
     }
   },
   "marginLending": {
@@ -231,6 +273,75 @@
       "title": "Maximize Your<br/>Investments with<br/>Margin Lending<br/>",
       "subtitle": "Flexible financing solutions designed to give you<br/>seamless access to capital when you need it.",
       "button": "Explore Solutions"
+    },
+    "murabahaFinancing": {
+      "title": "<0>Murabaha</0> Financing",
+      "subtitle": "Murabaha is a Shariah-compliant sale, not an interest-based loan. ICAP purchases the securities and resells them to you at cost plus a pre-agreed profit, based on your instructions. You repay the full amount (cost and profit) after six months in one lump sum.",
+      "button": "Explore Shariah Stocks",
+      "card1": {
+        "title": "Saudi Market<0/>Only",
+        "subtitle": "Murabaha is available exclusively for portfolios focused on the Saudi market."
+      },
+      "card2": {
+        "title": "Flexible Loan<0/>Usage",
+        "subtitle": "The approved loan can be utilized partially or in full as you need."
+      },
+      "card3": {
+        "title": "Coverage<0/>Requirements",
+        "subtitle": "A minimum coverage of 200% must be maintained."
+      },
+      "card4": {
+        "title": "Eligibility<0/>Criteria",
+        "subtitle": "Limits are based on pre-defined criteria and guidelines."
+      }
+    }
+  },
+  "realEstate": {
+    "hero": {
+      "title": "A Smarter Way to<br/>Invest in Real Estate",
+      "button": "Talk to an expert"
+    },
+    "tailoredFunds": {
+      "title": "Tailored Funds for Different Goals",
+      "subtitle": "Invest in real estate funds built to support your financial goals, whether you're seeking capital accumulation or income stability.",
+      "card1": {
+        "title": "Real Estate<0/>Development Funds",
+        "subtitle": "Designed to grow your capital over time, the fund invests in real estate development and exits through strategic property sales."
+      },
+      "card2": {
+        "title": "Infrastructure<0/>Development Funds",
+        "subtitle": "Turn undeveloped land into opportunity. We invest in raw plots, build infrastructure, and sell when the value peaks, so your capital grows with the land."
+      },
+      "card3": {
+        "title": "Real Estate<0/>Income Funds",
+        "subtitle": "The fund seeks to generate steady income by investing in a portfolio of high-grade real estate assets, chosen for stability, quality, and strong cash flow performance."
+      },
+      "card4": {
+        "title": "REITs (Real Estate<0/>Investment Trust)",
+        "subtitle": "Earn steady income and long-term growth through a handpicked portfolio of premium real estate properties with stable cash flow."
+      }
+    }
+  },
+    "investmentBanking": {
+    "hero": {
+      "title": "The Art of Strategic<br/>Growth with ICAP<br/>Investment Banking",
+      "button": "Talk to Experts"
+    },
+    "services": {
+      "title": "Investment <0>Banking</0>",
+      "subtitle": "ICAP's investment banking services encompass a comprehensive range of financial instruments and advisory solutions. Our approach combines deep market knowledge with innovative structuring to deliver optimal outcomes for our clients across various sectors and market conditions.",
+      "card1": {
+        "title": "Investment<0/>Experts",
+        "subtitle": "Our team of seasoned<0/>professionals brings deep market<0/>insight and execution expertise to<0/>every transaction."
+      },
+      "card2": {
+        "title": "Full-Scope<0/>Advisory",
+        "subtitle": "Your capital strategy is fully<0/>supported, from equity to<0/>structured finance and final<0/>delivery."
+      },
+      "card3": {
+        "title": "Tailored<0/>Strategy",
+        "subtitle": "Smart financial solutions<0/>shaped by your priorities<0/>and industry-specific<0/>challenges."
+      }
     }
   },
   "assetManagement": {
@@ -238,6 +349,46 @@
       "title": "Alistithmar Asset<br/>Management",
       "subtitle": "At Alistithmar Capital, our Asset Management Division tailors every<br/>strategy around your success.",
       "button": "Learn More"
+    },
+    "investmentOpportunities": {
+      "title": "Investment Opportunities Across <0>Markets</0>",
+      "subtitle": "Benefit from expert oversight and tailored investment strategies designed to maximize your<br/>portfolio's potential.",
+      "card1": {
+        "title": "Discover our<br/>Mutual<br/>Funds",
+        "subtitle": "Invest easily across a variety of mutual<br/>funds to build a well-diversified and<br/>resilient portfolio."
+      },
+      "card2": {
+        "title": "Discretionary<br/>Portfolio<br/>Management",
+        "subtitle": "Explore tailored Discretionary Portfolio<br/>Management blending premier asset with<br/>thoughtful investment strategies."
+      }
+    },
+    "investmentStrategy": {
+      "title": "Our Investment Strategy",
+      "subtitle": "Discover our comprehensive approach to investment management",
+      "card1": {
+        "title": "Disciplined<0/>Process",
+        "subtitle": "A consistent investment<0/>process, driven by<0/>fundamental research<0/>and broad analytical<0/>tools, guides our<0/>decisions."
+      },
+      "card2": {
+        "title": "Focus on Risk<0/>Management",
+        "subtitle": "We place strong emphasis on risk<0/>management and down-market<0/>strategies to safeguard our clients'<0/>positions."
+      },
+      "card3": {
+        "title": "Research-Driven<0/>Approach",
+        "subtitle": "Our portfolio management combines top-<0/>down analysis with bottom-up research<0/>for a balanced strategy."
+      },
+      "card4": {
+        "title": "Diversification",
+        "subtitle": "We firmly believe that<0/>portfolio diversification is key<0/>to managing unsystematic, or<0/>company-specific risks."
+      },
+      "card5": {
+        "title": "Extensive<0/>Research",
+        "subtitle": "Our choices to adjust holdings are grounded in<0/>comprehensive research within a structured and<0/>disciplined process."
+      },
+      "card6": {
+        "title": "Performance<0/>Evaluation",
+        "subtitle": "Performance attribution and evaluation are routinely<0/>performed to keep us aligned with our investment<0/>targets."
+      }
     }
   }
 } 

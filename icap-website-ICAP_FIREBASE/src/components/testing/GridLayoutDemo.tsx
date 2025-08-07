@@ -41,17 +41,17 @@ const GridLayoutDemo: React.FC = () => {
     switch (layout) {
       case 'platform-access':
         return [
-          <GridCard
-            key="mobile-app"
-            title="gridCard.mobileApp.title"
-            subtitle="gridCard.mobileApp.subtitle"
-            buttonText="gridCard.mobileApp.button"
-            variant="glassmorphism"
-            backgroundImage="/images/mobileapplication.png"
-            align="bottom"
-            height="h-[500px]"
-            className="rounded-lg p-6"
-          />,
+                <GridCard
+        key="mobile-app"
+        title="gridCard.mobileApp.title"
+        subtitle="gridCard.mobileApp.subtitle"
+        buttonText="gridCard.mobileApp.button"
+        variant="glassmorphism"
+        backgroundImage="/images/cards/mobileapplication.png"
+        align="bottom"
+        height="h-[500px]"
+        className="rounded-lg p-6"
+      />,
           <GridCard
             key="web-platform"
             title="gridCard.webPlatform.title"
@@ -78,7 +78,7 @@ const GridLayoutDemo: React.FC = () => {
             subtitle="gridCard.tradingTerminal.subtitle"
             buttonText="gridCard.tradingTerminal.button"
             variant="glassmorphism"
-            backgroundImage="/images/tradingterminal.png"
+            backgroundImage="/images/cards/tradingterminal.png"
             align="bottom"
             height="h-[500px]"
             className="rounded-lg p-6"

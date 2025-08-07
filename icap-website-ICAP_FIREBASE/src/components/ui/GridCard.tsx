@@ -8,6 +8,7 @@ interface GridCardProps {
   buttonText?: string;
   buttonHref?: string;
   align?: 'top' | 'center' | 'bottom';
+  textAlign?: 'left' | 'center' | 'right';
   height?: string;
   className?: string;
   variant?: 'glassmorphism' | 'flat';
@@ -20,12 +21,14 @@ const GridCard: React.FC<GridCardProps> = ({
   buttonText,
   buttonHref = '#',
   align = 'top',
+  textAlign = 'left',
   height = 'h-full',
   className = '',
   variant = 'glassmorphism',
   backgroundImage
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isArabic = i18n.language === 'ar';
   
   // Alignment classes
   const alignmentClasses = {
@@ -57,7 +60,8 @@ const GridCard: React.FC<GridCardProps> = ({
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
+            transform: isArabic ? 'scaleX(-1)' : 'none'
           }}
         />
       )}
@@ -65,7 +69,11 @@ const GridCard: React.FC<GridCardProps> = ({
       {/* Content Layer */}
       <div className={`relative z-10 flex flex-col h-full ${contentAlignmentClasses[align]}`}>
         {/* Content Section */}
-        <div className="flex flex-col">
+        <div className={`flex flex-col ${
+          textAlign === 'center' ? 'text-center' : 
+          textAlign === 'right' ? 'text-right' : 
+          isArabic ? 'text-right' : 'text-left'
+        }`}>
           {title && (
             <h3 className="card-title">
               <Trans

@@ -1,25 +1,49 @@
 import React from 'react';
-import { useTypography } from '../hooks/useTypography';
-import Calculator from '../components/calculator/Calculator';
-import MarketDataSection from '../components/market-data/MarketDataSection';
+import { useTranslation } from 'react-i18next';
+import ReusableHero from '../components/common/ReusableHero';
+import TailoredFunds from '../components/real-estate/TailoredFunds';
+import CtaSection from '../components/home/CtaSection';
 
 const RealEstate: React.FC = () => {
-  const { getTypographyClasses } = useTypography();
-
+  const { t } = useTranslation();
+  
   return (
-    <div className="min-h-screen bg-white">
+    <div className="relative">
       {/* Hero Section */}
-      <div
-        className="relative h-[320px] md:h-[400px] flex items-center justify-center bg-cover bg-center mb-8"
-        style={{ backgroundImage: 'url(/images/hero-background.jpg)' }}
-      >
-        <div className="absolute inset-0 bg-black/40" />
-        <h1 className={`relative z-10 text-4xl md:text-6xl font-bold text-white drop-shadow-lg ${getTypographyClasses('title')}`}>AI Playground exploration</h1>
-      </div>
-      {/* Calculator Section */}
-      <Calculator />
-      {/* Global Markets Section */}
-      <MarketDataSection />
+      <ReusableHero
+        // Content
+        title="realEstate.hero.title"
+        ctaText={t('realEstate.hero.button')}
+        
+        // Background
+        backgroundType="image"
+        backgroundSrc="/images/HeroSlides/realstateHero.png"
+        
+        // Layout
+        layout="left-aligned"
+        
+        // Styling
+        overlay={true}
+        overlayOpacity={0.3}
+        
+        // Animation
+        enableAnimations={true}
+        
+        // RTL
+        enableRTLFlip={true}
+        
+        // Typography
+        titleTypography="header-title"
+        
+        // Breadcrumbs
+        showBreadcrumbs={true}
+      />
+      
+      {/* Tailored Funds Section */}
+      <TailoredFunds />
+      
+      {/* CTA Section */}
+      <CtaSection />
     </div>
   );
 };

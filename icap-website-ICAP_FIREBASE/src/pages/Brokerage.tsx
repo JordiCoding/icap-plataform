@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrokerageHero, BrokerageProducts, SlidePlatformAccess, GridLayoutDemo } from '../components/brokerage';
+import { BrokerageHero, BrokerageProducts, SlidePlatformAccess } from '../components/brokerage';
 import CtaSection from '../components/home/CtaSection';
 
 const Brokerage: React.FC = () => {
@@ -8,7 +8,6 @@ const Brokerage: React.FC = () => {
       <BrokerageHero />
       <BrokerageProducts />
       <SlidePlatformAccess />
-      <GridLayoutDemo />
       <CtaSection />
     </>
   );

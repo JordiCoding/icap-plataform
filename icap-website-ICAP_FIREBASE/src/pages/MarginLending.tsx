@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ReusableHero from '../components/common/ReusableHero';
+import MurabahaFinancing from '../components/margin-lending/MurabahaFinancing';
 import CtaSection from '../components/home/CtaSection';
 
 const MarginLending: React.FC = () => {
@@ -39,6 +40,9 @@ const MarginLending: React.FC = () => {
         // Breadcrumbs
         showBreadcrumbs={true}
       />
+      
+      {/* Murabaha Financing Section */}
+      <MurabahaFinancing />
       
       {/* CTA Section */}
       <CtaSection />

@@ -9,7 +9,9 @@ import LocalMarket from './pages/LocalMarket';
 import InternationalMarkets from './pages/InternationalMarkets';
 import MarginLending from './pages/MarginLending';
 import AssetManagement from './pages/AssetManagement';
+import InvestmentBanking from './pages/InvestmentBanking';
 import NewsDetailPage from './pages/NewsDetailPage';
+import Testing from './components/testing/Testing';
 import PromotionModal from './components/common/PromotionModal';
 import { usePromotionPopup } from './hooks/usePromotionPopup';
 import { useScrollToTop } from './hooks/useScrollToTop';
@@ -28,8 +30,9 @@ function App() {
         <Route path="/international-markets" element={<InternationalMarkets />} />
         <Route path="/margin-lending" element={<MarginLending />} />
         <Route path="/asset-management" element={<AssetManagement />} />
+        <Route path="/testing" element={<Testing />} />
         <Route path="/about" element={<PlaceholderPage title="About Us" />} />
-        <Route path="/investment-banking" element={<PlaceholderPage title="Investment Banking" />} />
+        <Route path="/investment-banking" element={<InvestmentBanking />} />
         <Route path="/real-estate" element={<RealEstate />} />
         <Route path="/newsroom" element={<PlaceholderPage title="Newsroom" />} />
         <Route path="/news/:slug" element={<NewsDetailPage />} />

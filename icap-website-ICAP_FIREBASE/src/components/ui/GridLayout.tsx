@@ -42,11 +42,11 @@ const GridLayout: React.FC<GridLayoutProps> = ({
     if (type === 'three-row') {
       return (
         <div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="flex flex-wrap justify-center gap-6"
           style={{ gap: `${gap}px` }}
         >
           {cards.map((card, index) => (
-            <div key={index}>{card}</div>
+            <div key={index} className="w-[310px] h-[324px]">{card}</div>
           ))}
         </div>
       );
@@ -81,6 +81,7 @@ const GridLayout: React.FC<GridLayoutProps> = ({
     if (type === 'investment-strategy') {
       return (
         <div className="flex flex-col gap-6">
+          {/* Top row - Platform Access layout */}
           <div 
             className="w-full flex flex-col gap-6 lg:flex-row justify-center items-center lg:items-stretch"
             style={{ gap: `${gap}px` }}
@@ -92,12 +93,14 @@ const GridLayout: React.FC<GridLayoutProps> = ({
             </div>
             <div className="w-[300px]">{cards[3]}</div>
           </div>
+          
+          {/* Bottom row - 2 cards centered */}
           <div 
-            className="flex justify-center gap-6"
+            className="w-full flex justify-center gap-6"
             style={{ gap: `${gap}px` }}
           >
-            <div className="w-[490px]">{cards[4]}</div>
-            <div className="w-[490px]">{cards[5]}</div>
+            <div className="w-[514px]">{cards[4]}</div>
+            <div className="w-[514px]">{cards[5]}</div>
           </div>
         </div>
       );

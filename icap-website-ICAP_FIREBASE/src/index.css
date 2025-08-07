@@ -115,10 +115,13 @@ html[dir="rtl"] {
 /* Section Typography Classes */
 .section-title {
   @apply text-[52px] font-light mb-4;
+  font-family: "Chap", sans-serif;
 }
 
 .section-subtitle {
   @apply text-[22px] opacity-80;
+  font-family: "Jokker", sans-serif;
+  font-weight: 300;
 }
 
 .section-container {
@@ -164,5 +167,26 @@ html[dir="rtl"] .card-title {
 }
 
 html[dir="rtl"] .card-subtitle {
+  font-family: "Riada", sans-serif;
+}
+
+/* Navigation Card Typography Classes */
+.navigation-card-title {
+  @apply text-[40px] font-light mb-16 leading-tight;
+  font-family: "Chap", sans-serif;
+}
+
+.navigation-card-subtitle {
+  @apply text-[18px] leading-relaxed flex-1 mb-16;
+  font-family: "Jokker", sans-serif;
+  font-weight: 300;
+}
+
+/* Arabic Navigation Card Typography Classes */
+html[dir="rtl"] .navigation-card-title {
+  font-family: "Almarai", sans-serif;
+}
+
+html[dir="rtl"] .navigation-card-subtitle {
   font-family: "Riada", sans-serif;
 }

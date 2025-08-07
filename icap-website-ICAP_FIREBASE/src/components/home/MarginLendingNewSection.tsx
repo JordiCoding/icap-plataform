@@ -10,6 +10,8 @@ const MarginLendingNewSection: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const isArabic = i18n.language === 'ar';
+  
+
 
   const imageVariants = {
     hidden: { opacity: 0, x: -50 },
@@ -32,6 +34,7 @@ const MarginLendingNewSection: React.FC = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
+
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:pr-30">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-y-12 lg:gap-x-[80px] rtl:lg:flex-row-reverse">
           {/* Image */}
@@ -57,33 +60,33 @@ const MarginLendingNewSection: React.FC = () => {
           >
             <div className="text-center lg:text-right">
               {/* Title */}
-              <h2 className={`text-4xl lg:text-5xl text-icap-primary mb-6 ${isArabic ? 'leading-relaxed lg:leading-relaxed' : 'leading-tight lg:leading-tight'} ${getTypographyClasses('title')}`}>
+              <h2 className={`text-4xl lg:text-5xl font-bold text-icap-primary ${getTypographyClasses('title')} ${isArabic ? 'leading-relaxed' : 'leading-tight'}`}>
                 <Trans
-                  i18nKey="marginLending.title"
+                  i18nKey="marginLendingHome.title"
                   components={[
-                    <span className="text-[#A44F17]" />,
-                    <br />
+                    <span className="text-[#A44F17]" />, // <0> - Margin Lending
+                    <br />, // <1/> - line breaks
                   ]}
                 />
               </h2>
               
               {/* Subtitle */}
-              <p className={`${isArabic ? 'text-[22px] max-w-none' : 'text-lg'} text-gray-600 mb-8 ${getTypographyClasses('body')}`}>
+              <p className={`text-lg max-w-xl text-black ${getTypographyClasses('body')} mb-8`}>
                 {isArabic ? (
                   <Trans
-                    i18nKey="marginLending.subtitle"
+                    i18nKey="marginLendingHome.subtitle"
                     components={[
                       <span className="font-bold" style={{ fontFamily: 'Almarai, sans-serif' }} />, // <0> - عزز إمكانيات تداولك
-                      <br />, // <1> - line break
+                      <br />, // <1/> - line break
                       <span className="font-bold" style={{ fontFamily: 'Almarai, sans-serif' }} />, // <2> - الاستثمار كابيتال
                     ]}
                   />
                 ) : (
                   <Trans
-                    i18nKey="marginLending.subtitle"
+                    i18nKey="marginLendingHome.subtitle"
                     components={[
                       <span className="font-medium" />, // <0> - Enhance your trading potential
-                      <br />, // <1> - line break
+                      <br />, // <1/> - line breaks
                       <span className="font-medium" />, // <2> - Alistithmar Capital
                     ]}
                   />
@@ -96,7 +99,7 @@ const MarginLendingNewSection: React.FC = () => {
                 as="a" 
                 href="#"
               >
-                {t('marginLending.button')}
+                {t('marginLendingHome.button')}
               </Button>
             </div>
           </motion.div>

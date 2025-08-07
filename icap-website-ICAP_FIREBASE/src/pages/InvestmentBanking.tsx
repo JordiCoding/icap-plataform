@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ReusableHero from '../components/common/ReusableHero';
-import TradeGlobalMarkets from '../components/international-markets/TradeGlobalMarkets';
+import InvestmentBankingServices from '../components/investment-banking/InvestmentBankingServices';
 import CtaSection from '../components/home/CtaSection';
 
-const InternationalMarkets: React.FC = () => {
+const InvestmentBanking: React.FC = () => {
   const { t } = useTranslation();
   
   return (
@@ -12,14 +12,12 @@ const InternationalMarkets: React.FC = () => {
       {/* Hero Section */}
       <ReusableHero
         // Content
-        title="internationalMarkets.hero.title"
-        subtitle="internationalMarkets.hero.subtitle"
-        ctaText={t('internationalMarkets.hero.primaryButton')}
-        secondaryCtaText={t('internationalMarkets.hero.secondaryButton')}
+        title="investmentBanking.hero.title"
+        ctaText={t('investmentBanking.hero.button')}
         
         // Background
         backgroundType="image"
-        backgroundSrc="/images/HeroSlides/interhero.jpg"
+        backgroundSrc="/images/HeroSlides/investmentbankingHero.png"
         
         // Layout
         layout="left-aligned"
@@ -36,14 +34,13 @@ const InternationalMarkets: React.FC = () => {
         
         // Typography
         titleTypography="header-title"
-        subtitleTypography="header-subtitle"
         
         // Breadcrumbs
         showBreadcrumbs={true}
       />
       
-      {/* Trade Global Markets Section */}
-      <TradeGlobalMarkets />
+      {/* Investment Banking Services Section */}
+      <InvestmentBankingServices />
       
       {/* CTA Section */}
       <CtaSection />
@@ -51,4 +48,4 @@ const InternationalMarkets: React.FC = () => {
   );
 };
 
-export default InternationalMarkets; 
+export default InvestmentBanking; 
