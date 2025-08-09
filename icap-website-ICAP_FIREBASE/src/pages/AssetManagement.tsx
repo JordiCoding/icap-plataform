@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ReusableHero from '../components/common/ReusableHero';
 import InvestmentOpportunities from '../components/asset-management/InvestmentOpportunities';
 import InvestmentStrategy from '../components/asset-management/InvestmentStrategy';
-import GridLayoutDemo from '../components/testing/GridLayoutDemo';
-import Testing from '../components/testing/Testing';
+import InvestmentPhilosophy from '../components/asset-management/InvestmentPhilosophy';
 import CtaSection from '../components/home/CtaSection';
 
 const AssetManagement: React.FC = () => {
@@ -50,12 +49,9 @@ const AssetManagement: React.FC = () => {
       {/* Investment Strategy Section */}
       <InvestmentStrategy />
       
-      {/* Grid Layout Demo Section */}
-      <GridLayoutDemo />
-      
-      {/* Testing Section */}
-      <Testing />
-      
+            {/* Investment Philosophy Section */}
+      <InvestmentPhilosophy />
+
       {/* CTA Section */}
       <CtaSection />
     </div>

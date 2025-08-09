@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation, Trans } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import FeatureSectionDemo from './FeatureSectionDemo';
 
-type TestLayout = 'original-three' | 'two-cards' | 'four-grid' | 'responsive' | 'different-sizes';
+type TestLayout = 'original-three' | 'two-cards' | 'four-grid' | 'responsive' | 'different-sizes' | 'feature-section';
 
 const Testing: React.FC = () => {
   const { t } = useTranslation();
@@ -93,7 +94,8 @@ const Testing: React.FC = () => {
             { key: 'two-cards', label: '2-Card Layout' },
             { key: 'four-grid', label: '4-Card Grid' },
             { key: 'responsive', label: 'Responsive Layout' },
-            { key: 'different-sizes', label: 'Different Sizes' }
+            { key: 'different-sizes', label: 'Different Sizes' },
+            { key: 'feature-section', label: 'Feature Section' }
           ] as const).map(({ key, label }) => (
             <button
               key={key}
@@ -332,6 +334,13 @@ const Testing: React.FC = () => {
                 </button>
               </div>
             </div>
+          </div>
+        )}
+
+        {selectedLayout === 'feature-section' && (
+          <div className="mb-20">
+            <h3 className="text-2xl font-bold text-black mb-8 text-center">Feature Section Component Demo</h3>
+            <FeatureSectionDemo />
           </div>
         )}
       </div>

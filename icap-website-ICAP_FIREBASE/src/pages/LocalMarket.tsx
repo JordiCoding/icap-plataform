@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ReusableHero from '../components/common/ReusableHero';
 import LocalInvestmentProducts from '../components/local-market/LocalInvestmentProducts';
+import TradingTools from '../components/local-market/TradingTools';
 import CtaSection from '../components/home/CtaSection';
 
 const LocalMarket: React.FC = () => {
@@ -43,6 +44,9 @@ const LocalMarket: React.FC = () => {
       
       {/* Local Investment Products Section */}
       <LocalInvestmentProducts />
+      
+      {/* Trading Tools Section */}
+      <TradingTools />
       
       {/* CTA Section */}
       <CtaSection />

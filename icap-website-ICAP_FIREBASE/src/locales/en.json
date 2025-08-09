@@ -238,6 +238,26 @@
         "title": "Alternative &<0/>Short-Term<0/>Investments",
         "subtitle": "Real Estate Investment<0/>Traded Funds (REITs),<0/>Exchange Traded Funds (ETFs)<0/>and Close-ended Investment<0/>Traded Funds (CEFs)."
       }
+    },
+    "tradingTools": {
+      "title": "<0>Powerful Tools</0> for Smart Trading",
+      "subtitle": "Access features you need to analyze, act, and stay ahead in today's markets.",
+      "feature1": {
+        "title": "Real-time<0/>Data",
+        "description": "Stay ahead of the market<0/>with instant, up-to-the-<0/>second trading insights<0/>and smarter decisions."
+      },
+      "feature2": {
+        "title": "Margin<0/>Lending",
+        "description": "Boost your purchasing<0/>power and amplify gains<0/>with strategic margin<0/>support."
+      },
+      "feature3": {
+        "title": "Pre-Market<0/>Trading",
+        "description": "Access opportunities<0/>before the opening bell<0/>and position your trades<0/>early."
+      },
+      "feature4": {
+        "title": "Stop<0/>Orders",
+        "description": "Minimize losses and<0/>secure profits<0/>automatically with<0/>intelligent trade triggers."
+      }
     }
   },
   "internationalMarkets": {
@@ -266,6 +286,26 @@
         "title": "Stop<0/>Orders",
         "subtitle": "Set smart triggers to take profit<0/>or limit losses, no more second<0/>guessing."
       }
+    },
+    "globalSecurities": {
+      "title": "<0>Global Securities</0> at Your Fingertips",
+      "subtitle": "Explore diverse investment solutions and trade the world with confidence.",
+      "feature1": {
+        "title": "Stocks",
+        "description": "Trade top-performing<0/>companies worldwide."
+      },
+      "feature2": {
+        "title": "ETFs",
+        "description": "Diversify your capital with<0/>smart, low-cost funds."
+      },
+      "feature3": {
+        "title": "Bonds",
+        "description": "Build a balanced portfolio<0/>with fixed-income returns."
+      },
+      "feature4": {
+        "title": "Options",
+        "description": "Turn market volatility into<0/>profitable opportunity."
+      }
     }
   },
   "marginLending": {
@@ -293,6 +333,22 @@
       "card4": {
         "title": "Eligibility<0/>Criteria",
         "subtitle": "Limits are based on pre-defined criteria and guidelines."
+      }
+    },
+    "marginLendingFeatures": {
+      "title": "Go Further with <0>Margin Lending</0>",
+      "subtitle": "Unlock extra capital with our margin lending solutions and give your investments room to grow.",
+      "feature1": {
+        "title": "Real-time<0/>buying power",
+        "description": "Access extra investment funds<0/>instantly, no need to wait for<0/>settlement."
+      },
+      "feature2": {
+        "title": "Seamless Margin<0/>Access",
+        "description": "Unlock capital from your current<0/>portfolio while keeping your<0/>strategy intact."
+      },
+      "feature3": {
+        "title": "Built-In<0/>Compliance",
+        "description": "Both Margin Overdraft and<0/>Murabaha Financing meet<0/>regulatory standards."
       }
     }
   },
@@ -389,6 +445,20 @@
         "title": "Performance<0/>Evaluation",
         "subtitle": "Performance attribution and evaluation are routinely<0/>performed to keep us aligned with our investment<0/>targets."
       }
+    },
+    "investmentPhilosophy": {
+      "title": "<0>Investment</0> Philosophy",
+      "subtitle": "Alistithmar Capital follows three guiding principles<0/>in its investment philosophy.",
+      "feature1": {
+        "title": "Long-Term<0/>Vision"
+      },
+      "feature2": {
+        "title": "Research-Led<0/>Decisions"
+      },
+      "feature3": {
+        "title": "Adaptive<0/>Risk Control"
+      },
+      "description": "We believe that identifying long-term market trends and understanding the structural changes behind them are essential for creating consistent value over time. Using thorough research, we pinpoint investment opportunities that deliver lasting growth. We also maintain continuous monitoring to ensure our investments meet objectives while fully complying with laws and regulations."
     }
   }
 } 
