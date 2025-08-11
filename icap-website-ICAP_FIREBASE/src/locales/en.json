@@ -497,5 +497,57 @@
       },
       "description": "We believe that identifying long-term market trends and understanding the structural changes behind them are essential for creating consistent value over time. Using thorough research, we pinpoint investment opportunities that deliver lasting growth. We also maintain continuous monitoring to ensure our investments meet objectives while fully complying with laws and regulations."
     }
+  },
+  "capitalSolutions": {
+    "slide1": {
+      "title": {
+        "pre": "Our",
+        "accent": "Capital Solutions"
+      },
+      "subtitle": "By your side, from IPOs to mergers, our experts deliver clarity, confidence, and results that move you forward."
+    },
+    "slide2": {
+      "title": "Initial Public Offerings",
+      "feature1": { "title": "Comprehensive IPO & Listing Advisory", "subtitle": "From planning to execution, including strategy and structuring." },
+      "feature2": { "title": "Regulatory & Documentation Support", "subtitle": "Preparing all legal documents and securing necessary approvals." },
+      "feature3": { "title": "Valuation & Pricing Expertise", "subtitle": "Use fair valuation techniques to guide pricing and investor alignment." },
+      "feature4": { "title": "Underwriting & Distribution", "subtitle": "Leading bidding, underwriting, and share allocation." }
+    },
+    "slide3": {
+      "title": "Private Placement",
+      "feature1": { "title": "Comprehensive Private Placement Advisory", "subtitle": "Planning, structuring, and guiding every aspect of the placement process." },
+      "feature2": { "title": "Valuation & Pricing", "subtitle": "Apply valuation methods to derive fair valuation and support shareholder value." },
+      "feature3": { "title": "Document Preparation & Approvals", "subtitle": "Support with offering materials and securing regulatory approvals." },
+      "feature4": { "title": "Investor Outreach", "subtitle": "Roadshows and strategic investor targeting to drive interest." }
+    },
+    "slide4": {
+      "title": "Rights Issue",
+      "feature1": { "title": "End-to-End Rights Issue Advisory", "subtitle": "Advising on the full lifecycle of the rights issue process, from strategy to execution." },
+      "feature2": { "title": "Offering Document Support", "subtitle": "Preparing and refining all necessary investor and regulatory materials." },
+      "feature3": { "title": "Regulatory Application Management", "subtitle": "Handling submission of required applications to relevant authorities." },
+      "feature4": { "title": "Compliance-Ready Execution", "subtitle": "Ensuring the entire process aligns with regulatory standards and timelines." }
+    },
+    "slide5": {
+      "title": "Mergers and Acquisitions Advisory",
+      "feature1": { "title": "End-to-End M&A Strategy and Execution", "subtitle": "We plan, structure, and lead M&A deals to align with your strategic business goals." },
+      "feature2": { "title": "Valuation & Deal Structuring", "subtitle": "Our team evaluates opportunities, determines pricing, and optimizes deal terms for value creation." },
+      "feature3": { "title": "Documentation & Negotiation Management", "subtitle": "We manage transaction documentation and negotiate on your behalf for favorable outcomes." },
+      "feature4": { "title": "Regulatory Filings & Closing Support", "subtitle": "We oversee all approval processes and ensure a seamless transaction close, end-to-end." }
+    },
+    "slide6": {
+      "title": "Corporate Finance Advisory",
+      "feature1": { "title": "Fair Market Valuation of Companies & Assets", "subtitle": "We provide independent valuation of businesses and assets tailored to your strategic objectives." },
+      "feature2": { "title": "Capital Structure Optimization", "subtitle": "Advice on equity vs. debt mix, leverage, and capital reallocation strategies." },
+      "feature3": { "title": "Strategic Financial Planning", "subtitle": "Support in decision-making for fundraising, dividend policy, corporate restructuring, and ownership transitions." },
+      "feature4": { "title": "Independent Business Valuation", "subtitle": "Our approach applies scenario-driven analysis and established valuation techniques to support strategic decisions." }
+    },
+    "slide7": {
+      "title": "Debt Capital Markets (DCM)",
+      "feature1": { "title": "DCM Advisory", "subtitle": "Structuring and executing debt solutions across sukuk, bonds, and structured instruments." },
+      "feature2": { "title": "Transaction Structuring", "subtitle": "Developing tailored conventional and Shariah-compliant instruments to meet issuer objectives." },
+      "feature3": { "title": "Offering Documentation", "subtitle": "Preparing regulatory and investor materials for capital market issuance." },
+      "feature4": { "title": "Investor Outreach & Distribution", "subtitle": "Engaging investors through targeted placement strategies." },
+      "feature5": { "title": "Execution", "subtitle": "Overseeing end-to-end issuance and coordinating all regulatory and process milestones." }
+    }
   }
 } 
