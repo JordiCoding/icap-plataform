@@ -14,7 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const isNewsDetailPage = location.pathname.startsWith('/news/');
   const headerProps = isNewsDetailPage 
     ? { background: '#341D00', position: 'relative' as const }
-    : {};
+    : { background: 'transparent', position: 'absolute' as const };
 
   return (
     <div className="flex flex-col min-h-screen">

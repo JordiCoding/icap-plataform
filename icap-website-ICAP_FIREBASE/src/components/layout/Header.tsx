@@ -65,8 +65,8 @@ const Header: React.FC<HeaderProps> = ({ background, position = 'absolute' }) =>
   return (
     <>
       <header 
-        className={`${position} top-0 left-0 w-full z-10 py-4`}
-        style={{ backgroundColor: background }}
+        className={`${position} top-0 left-0 w-full z-10 py-4 bg-transparent`}
+        style={{ backgroundColor: background || 'transparent' }}
       >
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between w-full">

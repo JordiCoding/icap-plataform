@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import GridLayout from '../ui/GridLayout';
 import GridCard from '../ui/GridCard';
 
 const TradeGlobalMarkets: React.FC = () => {
+  const { t } = useTranslation();
+  
   // 4 cards for trade global markets (reusing investment-strategy layout)
   const tradeGlobalCards = [
     <GridCard
@@ -54,10 +57,10 @@ const TradeGlobalMarkets: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="section-title text-black mb-4">
-            All You Need to Trade Global Markets
+            {t('internationalMarkets.tradeGlobalMarkets.title')}
           </h2>
           <p className="section-subtitle text-black">
-            Access features you need to analyze, act, and stay ahead in international markets.
+            {t('internationalMarkets.tradeGlobalMarkets.subtitle')}
           </p>
         </div>
 

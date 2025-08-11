@@ -55,8 +55,8 @@
     "copyright": "© Copyright 2025. All Right Reserved."
   },
   "home": {
-    "title": "Investing Made Smarter",
-    "subtitle": "Experience seamless and secure investing with Alistithmar Capital",
+    "title": "Empowering Investors\\nEnabling Growth",
+    "subtitle": "For those who expect more than returns. ICAP offers Clarity, control, and confidence.",
     "cta": "Get Started",
     "login": "Log in",
     "signup": "Sign Up",
@@ -72,6 +72,39 @@
     "title": "Increase Your Buying<1/>Power with<1/><0>Margin Lending</0>",
     "subtitle": "<0>Enhance your trading potential</0> with secure,<1/>flexible, and Sharia-compliant margin<1/>financing from <2>Alistithmar Capital</2>.",
     "button": "Learn More"
+  },
+  "marginLendingUnlock": {
+    "title": "<0>Unlock More</0> with<1/>Less Barriers",
+    "subtitle": "Margin lending lets you access funds from<1/>your portfolio without selling your asset.<1/>Choose the model that best aligns with your<1/>strategy."
+  },
+  "internationalUS": {
+    "title": "Trading <0>US Stocks</0><1/>Made Simple",
+    "subtitle": "Buy and sell shares in top US companies with trusted tools, and seamless execution.",
+    "button": "Fees & Charges"
+  },
+  "gccRegional": {
+    "title": "Expand Your <0>Portfolio</0> Regionally",
+    "subtitle": "Invest in GCC, Jordan and Egypt's top markets. All in one platform.",
+    "button": "Fees & Charges"
+  },
+  "localMarkets": {
+    "title": "Explore <0>Local Markets</0>",
+    "subtitle": "Get direct access to Saudi's most dynamic trading venues."
+  },
+  "investmentBankingDifferent": {
+    "title": "What Makes Us <0>Different</0>",
+    "feature1": {
+      "title": "Strategic<0/>Alignment",
+      "description": "We tailor strategies around<0/>your capital structure, timing,<0/>and long-term vision."
+    },
+    "feature2": {
+      "title": "Analytical<0/>Depth",
+      "description": "Every transaction is shaped by<0/>robust financial, strategic, and<0/>sector analysis."
+    },
+    "feature3": {
+      "title": "Execution with<0/>Precision",
+      "description": "Delivering flawless execution, from<0/>start to finish, with clarity, speed,<0/>and control."
+    }
   },
   "market": {
     "live": "Live",
@@ -351,6 +384,10 @@
         "description": "Both Margin Overdraft and<0/>Murabaha Financing meet<0/>regulatory standards."
       }
     }
+  },
+  "marginOverdraft": {
+    "title": "<0>Margin</0> <1>Overdraft</1>",
+    "subtitle": "Overdraft is a margin facility product that<0/>grants you to overdraw the investment<0/>account with an agreed predefined buying<0/>power.<0/><0/>You’ll need to maintain a coverage ratio, and<0/>a monthly fee applies. Repayment is only<0/>required if the agreement ends without<0/>renewal."
   },
   "realEstate": {
     "hero": {

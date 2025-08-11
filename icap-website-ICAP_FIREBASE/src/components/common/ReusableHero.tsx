@@ -184,7 +184,10 @@ const ReusableHero: React.FC<HeroProps> = ({
   return (
     <div 
       className={`relative h-screen bg-cover bg-center flex items-center ${containerClassName}`}
-      style={getBackgroundStyle()}
+      style={{
+        ...getBackgroundStyle(),
+        backgroundColor: '#361704' // Loading hero background
+      }}
     >
       {/* Background Video (if video type) */}
       {backgroundType === 'video' && (

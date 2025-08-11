@@ -42,10 +42,11 @@ const GlobalSecurities: React.FC = () => {
       items={globalSecuritiesItems}
       variant="four-items"
       titleHighlight="Global Securities"
-      titleHighlightColor="#F3B660"
+      titleHighlightColor="#EECA60"
       backgroundImage="/images/darkbackground.png"
     />
   );
 };
 
 export default GlobalSecurities;
+

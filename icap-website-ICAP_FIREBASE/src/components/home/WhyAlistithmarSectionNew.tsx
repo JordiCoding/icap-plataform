@@ -41,3 +41,4 @@ const WhyAlistithmarSectionNew: React.FC = () => {
 };
 
 export default WhyAlistithmarSectionNew;
+

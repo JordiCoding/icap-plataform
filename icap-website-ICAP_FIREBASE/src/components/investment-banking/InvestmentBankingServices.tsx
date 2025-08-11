@@ -39,7 +39,7 @@ const InvestmentBankingServices: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-[150px] md:py-[200px] bg-white">
       <div className="w-full max-w-[1300px] mx-auto px-4">
         {/* Header */}
         <SectionHeader

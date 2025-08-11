@@ -33,17 +33,7 @@ const Hero: React.FC = () => {
   const ctaPrimary = t('home.login');
   const ctaSecondary = t('home.signup');
 
-  // Show loading state if Strapi data is being fetched
-  if (strapiLoading) {
-    return (
-      <div className="relative h-screen bg-gray-900 flex items-center justify-center text-white">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto mb-4"></div>
-          <p className={getTypographyClasses('body')}>{t('common.loading')}</p>
-        </div>
-      </div>
-    );
-  }
+
 
   // Show error state if Strapi data failed to load (but still show fallback content)
   if (strapiError) {
@@ -51,7 +41,7 @@ const Hero: React.FC = () => {
   }
 
   return (
-    <div className="relative h-screen bg-gray-900 flex items-center justify-center text-white overflow-hidden">
+    <div className="relative h-screen flex items-center justify-center text-white overflow-hidden" style={{ backgroundColor: '#361704' }}>
       {/* Background Video */}
       <video
         autoPlay

@@ -190,3 +190,57 @@ html[dir="rtl"] .navigation-card-title {
 html[dir="rtl"] .navigation-card-subtitle {
   font-family: "Riada", sans-serif;
 }
+
+/* GCC Regional Section Styles */
+.gcc-country-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 210px;
+  height: 80px;
+  padding: 0 20px;
+  background-color: #FBF7F1;
+  border: 1px solid #F2EFED;
+  border-radius: 20px;
+}
+
+.gcc-country-text {
+  font-family: 'Chap', sans-serif;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 300;
+}
+
+.gcc-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 24px;
+  row-gap: 32px;
+  justify-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .gcc-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    row-gap: 36px;
+  }
+}
+
+@media (min-width: 768px) {
+  .gcc-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    row-gap: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gcc-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+    row-gap: 44px;
+  }
+}

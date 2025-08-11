@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ReusableHero from '../components/common/ReusableHero';
+import InternationalUSSection from '../components/international-markets/InternationalUSSection';
+import GCCRegional from '../components/international-markets/GCCRegional';
 import TradeGlobalMarkets from '../components/international-markets/TradeGlobalMarkets';
 import GlobalSecurities from '../components/international-markets/GlobalSecurities';
 import CtaSection from '../components/home/CtaSection';
@@ -43,11 +45,19 @@ const InternationalMarkets: React.FC = () => {
         showBreadcrumbs={true}
       />
       
+      {/* Trading US Stocks Section */}
+      <InternationalUSSection />
+      
+      {/* GCC Regional Section */}
+      <GCCRegional />
+
+      {/* Global Securities Section */}
+      <GlobalSecurities />
+      
       {/* Trade Global Markets Section */}
       <TradeGlobalMarkets />
       
-      {/* Global Securities Section */}
-      <GlobalSecurities />
+
       
       {/* CTA Section */}
       <CtaSection />

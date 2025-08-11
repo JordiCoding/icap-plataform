@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ReusableHero from '../components/common/ReusableHero';
+import InvestmentBankingDifferent from '../components/investment-banking/InvestmentBankingDifferent';
 import InvestmentBankingServices from '../components/investment-banking/InvestmentBankingServices';
 import CtaSection from '../components/home/CtaSection';
 
@@ -41,6 +42,9 @@ const InvestmentBanking: React.FC = () => {
       
       {/* Investment Banking Services Section */}
       <InvestmentBankingServices />
+      
+      {/* What Makes Us Different Section */}
+      <InvestmentBankingDifferent />
       
       {/* CTA Section */}
       <CtaSection />
