@@ -6,9 +6,8 @@ import { useTypography } from '../../hooks/useTypography';
 const placeholderImage = '/images/capitalsolutions1.png';
 
 const slides = [
-  // Slide 2 (Text + Image)
   {
-    image: placeholderImage,
+    image: '/images/investmentbanking/banking1.png',
     titleKey: 'capitalSolutions.slide2.title',
     features: [
       { titleKey: 'capitalSolutions.slide2.feature1.title', subtitleKey: 'capitalSolutions.slide2.feature1.subtitle' },
@@ -16,11 +15,10 @@ const slides = [
       { titleKey: 'capitalSolutions.slide2.feature3.title', subtitleKey: 'capitalSolutions.slide2.feature3.subtitle' },
       { titleKey: 'capitalSolutions.slide2.feature4.title', subtitleKey: 'capitalSolutions.slide2.feature4.subtitle' },
     ],
-    variant: 'text-image',
+    variant: 'image-text' as 'image-text',
   },
-  // Slide 3 (Image + Text)
   {
-    image: placeholderImage,
+    image: '/images/investmentbanking/banking2.png',
     titleKey: 'capitalSolutions.slide3.title',
     features: [
       { titleKey: 'capitalSolutions.slide3.feature1.title', subtitleKey: 'capitalSolutions.slide3.feature1.subtitle' },
@@ -28,11 +26,10 @@ const slides = [
       { titleKey: 'capitalSolutions.slide3.feature3.title', subtitleKey: 'capitalSolutions.slide3.feature3.subtitle' },
       { titleKey: 'capitalSolutions.slide3.feature4.title', subtitleKey: 'capitalSolutions.slide3.feature4.subtitle' },
     ],
-    variant: 'image-text',
+    variant: 'text-image' as 'text-image',
   },
-  // Slide 4 (Text + Image)
   {
-    image: placeholderImage,
+    image: '/images/investmentbanking/banking3.png',
     titleKey: 'capitalSolutions.slide4.title',
     features: [
       { titleKey: 'capitalSolutions.slide4.feature1.title', subtitleKey: 'capitalSolutions.slide4.feature1.subtitle' },
@@ -40,11 +37,10 @@ const slides = [
       { titleKey: 'capitalSolutions.slide4.feature3.title', subtitleKey: 'capitalSolutions.slide4.feature3.subtitle' },
       { titleKey: 'capitalSolutions.slide4.feature4.title', subtitleKey: 'capitalSolutions.slide4.feature4.subtitle' },
     ],
-    variant: 'text-image',
+    variant: 'image-text' as 'image-text',
   },
-  // Slide 5 (Image + Text)
   {
-    image: placeholderImage,
+    image: '/images/investmentbanking/banking4.png',
     titleKey: 'capitalSolutions.slide5.title',
     features: [
       { titleKey: 'capitalSolutions.slide5.feature1.title', subtitleKey: 'capitalSolutions.slide5.feature1.subtitle' },
@@ -52,11 +48,10 @@ const slides = [
       { titleKey: 'capitalSolutions.slide5.feature3.title', subtitleKey: 'capitalSolutions.slide5.feature3.subtitle' },
       { titleKey: 'capitalSolutions.slide5.feature4.title', subtitleKey: 'capitalSolutions.slide5.feature4.subtitle' },
     ],
-    variant: 'image-text',
+    variant: 'text-image' as 'text-image',
   },
-  // Slide 6 (Text + Image)
   {
-    image: placeholderImage,
+    image: '/images/investmentbanking/banking5.png',
     titleKey: 'capitalSolutions.slide6.title',
     features: [
       { titleKey: 'capitalSolutions.slide6.feature1.title', subtitleKey: 'capitalSolutions.slide6.feature1.subtitle' },
@@ -64,11 +59,10 @@ const slides = [
       { titleKey: 'capitalSolutions.slide6.feature3.title', subtitleKey: 'capitalSolutions.slide6.feature3.subtitle' },
       { titleKey: 'capitalSolutions.slide6.feature4.title', subtitleKey: 'capitalSolutions.slide6.feature4.subtitle' },
     ],
-    variant: 'text-image',
+    variant: 'image-text' as 'image-text',
   },
-  // Slide 7 (Image + Text)
   {
-    image: placeholderImage,
+    image: '/images/investmentbanking/banking6.png',
     titleKey: 'capitalSolutions.slide7.title',
     features: [
       { titleKey: 'capitalSolutions.slide7.feature1.title', subtitleKey: 'capitalSolutions.slide7.feature1.subtitle' },
@@ -77,7 +71,7 @@ const slides = [
       { titleKey: 'capitalSolutions.slide7.feature4.title', subtitleKey: 'capitalSolutions.slide7.feature4.subtitle' },
       { titleKey: 'capitalSolutions.slide7.feature5.title', subtitleKey: 'capitalSolutions.slide7.feature5.subtitle' },
     ],
-    variant: 'image-text',
+    variant: 'text-image' as 'text-image',
   },
 ];
 

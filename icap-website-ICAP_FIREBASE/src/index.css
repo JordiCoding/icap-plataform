@@ -244,3 +244,44 @@ html[dir="rtl"] .navigation-card-subtitle {
     row-gap: 44px;
   }
 }
+
+/* Lead Capture Input Styles */
+.lead-capture-input {
+  width: 512px;
+  height: 75px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background-color: white;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 300;
+  color: #635E5E;
+  box-shadow: 0 4px 32px 0 rgba(94, 45, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.lead-capture-input::placeholder {
+  color: #9CA3AF;
+}
+
+.lead-capture-input:focus {
+  outline: none;
+  box-shadow: 0 4px 32px 0 rgba(94, 45, 0, 0.04), 0 0 0 2px #A44F17;
+}
+
+/* Responsive adjustments for lead capture inputs */
+@media (max-width: 1024px) {
+  .lead-capture-input {
+    width: 100%;
+    max-width: 512px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lead-capture-input {
+    width: 100%;
+    height: 60px;
+    font-size: 14px;
+  }
+}

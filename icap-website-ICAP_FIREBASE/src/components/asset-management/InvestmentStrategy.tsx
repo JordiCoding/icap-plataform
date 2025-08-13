@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import GridLayout from '../ui/GridLayout';
 import GridCard from '../ui/GridCard';
 
 const InvestmentStrategy: React.FC = () => {
+  const { t } = useTranslation();
   
   // Cards with correct composition (tall, short, short, tall) + 2 bottom cards
   const strategyCards = [
@@ -73,10 +75,10 @@ const InvestmentStrategy: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="section-title text-black mb-4">
-            Our Investment Strategy
+            {t('assetManagement.investmentStrategy.title')}
           </h2>
           <p className="section-subtitle text-black">
-            Discover our comprehensive approach to investment management
+            {t('assetManagement.investmentStrategy.subtitle')}
           </p>
         </div>
 

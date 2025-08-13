@@ -13,6 +13,7 @@ interface GridCardProps {
   className?: string;
   variant?: 'glassmorphism' | 'flat';
   backgroundImage?: string;
+  titleTransComponents?: React.ReactElement[];
 }
 
 const GridCard: React.FC<GridCardProps> = ({
@@ -25,7 +26,8 @@ const GridCard: React.FC<GridCardProps> = ({
   height = 'h-full',
   className = '',
   variant = 'glassmorphism',
-  backgroundImage
+  backgroundImage,
+  titleTransComponents
 }) => {
   const { t, i18n } = useTranslation();
   const isArabic = i18n.language === 'ar';
@@ -78,7 +80,7 @@ const GridCard: React.FC<GridCardProps> = ({
             <h3 className="card-title">
               <Trans
                 i18nKey={title}
-                components={[<br />]}
+                components={titleTransComponents || [<br />]}
               />
             </h3>
           )}

@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ReusableHero from '../components/common/ReusableHero';
 import TailoredFunds from '../components/real-estate/TailoredFunds';
+import RealEstateStrategySection from '../components/real-estate/RealEstateStrategySection';
 import CtaSection from '../components/home/CtaSection';
 
 const RealEstate: React.FC = () => {
@@ -41,6 +42,9 @@ const RealEstate: React.FC = () => {
       
       {/* Tailored Funds Section */}
       <TailoredFunds />
+      
+      {/* Strategy Section */}
+      <RealEstateStrategySection />
       
       {/* CTA Section */}
       <CtaSection />

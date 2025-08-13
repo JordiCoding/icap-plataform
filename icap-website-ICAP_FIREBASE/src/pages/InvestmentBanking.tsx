@@ -1,11 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ReusableHero from '../components/common/ReusableHero';
-import InvestmentBankingDifferent from '../components/investment-banking/InvestmentBankingDifferent';
 import InvestmentBankingServices from '../components/investment-banking/InvestmentBankingServices';
-import CapitalSolutions from '../components/investment-banking/CapitalSolutions';
+import InvestmentBankingDifferent from '../components/investment-banking/InvestmentBankingDifferent';
 import CapitalSolutionsSection from '../components/investment-banking/CapitalSolutionsSection';
+import InvestmentBankingClientsSection from '../components/investment-banking/InvestmentBankingClientsSection';
 import CtaSection from '../components/home/CtaSection';
+import GridLayoutDemo from '../components/testing/GridLayoutDemo';
+import LeadCaptureSection from '../components/layout/LeadCaptureSection';
 
 const InvestmentBanking: React.FC = () => {
   const { t } = useTranslation();
@@ -43,14 +45,20 @@ const InvestmentBanking: React.FC = () => {
       />
       
       {/* Investment Banking Services Section */}
-      <CapitalSolutionsSection />
       <InvestmentBankingServices />
-      <CapitalSolutions />
-      {/* What Makes Us Different Section */}
+      {/* Investment Banking Different Section */}
       <InvestmentBankingDifferent />
+      {/* Capital Solutions Section */}
+      <CapitalSolutionsSection />
+      {/* Clients Who Trust Us Section */}
+      <InvestmentBankingClientsSection />
       
-      {/* CTA Section */}
-      <CtaSection />
+  
+      {/* Lead Capture Section */}
+      <LeadCaptureSection />
+      
+ 
+  
     </div>
   );
 };

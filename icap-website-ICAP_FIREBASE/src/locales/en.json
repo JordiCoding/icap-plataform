@@ -387,7 +387,12 @@
   },
   "marginOverdraft": {
     "title": "<0>Margin</0> <1>Overdraft</1>",
-    "subtitle": "Overdraft is a margin facility product that<0/>grants you to overdraw the investment<0/>account with an agreed predefined buying<0/>power.<0/><0/>You’ll need to maintain a coverage ratio, and<0/>a monthly fee applies. Repayment is only<0/>required if the agreement ends without<0/>renewal."
+    "subtitle": "Overdraft is a margin facility product that<0/>grants you to overdraw the investment<0/>account with an agreed predefined buying<0/>power.<0/><0/>You'll need to maintain a coverage ratio, and<0/>a monthly fee applies. Repayment is only<0/>required if the agreement ends without<0/>renewal.",
+    "coverageRequirements": {
+      "saudi": "Saudi Market Minimum<0/>Coverage Requirement",
+      "us": "U.S Market Minimum<0/>Coverage Requirement",
+      "emirates": "Emirates market Minimum<0/>Coverage Requirement"
+    }
   },
   "realEstate": {
     "hero": {
@@ -436,6 +441,36 @@
         "subtitle": "Smart financial solutions<0/>shaped by your priorities<0/>and industry-specific<0/>challenges."
       }
     }
+  },
+  "investmentBankingClients": {
+    "privateCompanies": {
+      "title": "<0>Private<0/>Companies</0>",
+      "subtitle": "Unlock tailored funding<0/>strategies and growth-oriented advisory across<0/>all lifecycle stages."
+    },
+    "publiclyListed": {
+      "title": "<0>Public Listed</0><1/> <0>Companies</0>",
+      "subtitle": "Enhance shareholder value<0/>with customized equity and<0/>debt capital solutions."
+    },
+    "gres": {
+      "title": "<0>Government-Related<1/>Entities (GREs)</0>",
+      "subtitle": "Structure large-scale financings<0/>that align with national priorities<0/>and public value."
+    },
+    "familyOffices": {
+      "title": "<0>Family<1/>Offices</0>",
+      "subtitle": "Protect your capital and<0/>shape your legacy with smart,<0/>forward-looking strategies."
+    },
+    "sovereignEntities": {
+      "title": "<0>Sovereign Entities</0>",
+      "subtitle": "Deploy capital across critical sectors through sovereign<0/>wealth and strategic investment platforms."
+    },
+    "institutionalInvestors": {
+      "title": "<0>Institutional Investors</0>",
+      "subtitle": "Capture long-term value with insights-driven portfolio<0/>structuring and risk-adjusted returns."
+    }
+  },
+  "investmentBankingClientsSection": {
+    "title": "Clients Who Trust Us",
+    "subtitle": "We advise ambitious clients across capital markets and M&A, delivering<0/>tailored investment banking support at every stage of growth."
   },
   "assetManagement": {
     "hero": {
@@ -548,6 +583,43 @@
       "feature3": { "title": "Offering Documentation", "subtitle": "Preparing regulatory and investor materials for capital market issuance." },
       "feature4": { "title": "Investor Outreach & Distribution", "subtitle": "Engaging investors through targeted placement strategies." },
       "feature5": { "title": "Execution", "subtitle": "Overseeing end-to-end issuance and coordinating all regulatory and process milestones." }
+    }
+  },
+  "leadCapture": {
+    "title": "Personalized Investment Banking Support",
+    "subtitle": "Connect with our experts to explore opportunities, develop tailored capital strategies, and accelerate your financial objectives.",
+    "buttonText": "Schedule Private Consultation",
+    "fullNameLabel": "Full name",
+    "fullNamePlaceholder": "Full name",
+    "mobileNumberLabel": "Mobile number",
+    "mobileNumberPlaceholder": "Mobile number"
+  },
+  "realEstateStrategy": {
+    "title": "<0>Key Pillars</0> of Our Strategy",
+    "subtitle": "We invest in high-potential properties that generate income today and build long-term value for<0/>tomorrow, under expert risk governance.",
+    "feature1": {
+      "title": "Diverse Investment<0/>Opportunities",
+      "subtitle": "We offer direct access to high-value<0/>real estate investment, from cash-flow<0/>properties to strategic land developments."
+    },
+    "feature2": {
+      "title": "Partnership with<0/>Leading Experts",
+      "subtitle": "We partner with top developers,<0/>operators, and advisors to deliver<0/>high-quality, well-managed investments."
+    },
+    "feature3": {
+      "title": "Tailored Fund<0/>Structures",
+      "subtitle": "Our funds are carefully designed to<0/>support your goals, to maximize<0/>returns, manage risk, and ensure<0/>compliance."
+    },
+    "feature4": {
+      "title": "Informed Decision<0/>Making",
+      "subtitle": "We blend market intelligence with<0/>in-depth asset analysis to uncover<0/>quality, income-producing investment opportunities."
+    },
+    "feature5": {
+      "title": "Strategic Exit<0/>Planning",
+      "subtitle": "Every investment includes a clear<0/>strategy for when and how to exit to<0/>protect and maximize returns, and<0/>ensure liquidity when needed."
+    },
+    "feature6": {
+      "title": "Team-Driven<0/>Excellence",
+      "subtitle": "We track and evaluate performance<0/>at every stage to maintain alignment<0/>with investor expectations, market<0/>shifts, and portfolio resilience."
     }
   }
 } 

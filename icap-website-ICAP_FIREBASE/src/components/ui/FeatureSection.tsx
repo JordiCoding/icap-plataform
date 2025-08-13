@@ -439,7 +439,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
               {renderTitle()}
             </h2>
             {subtitle && (
-              <p className={`text-[22px] text-gray-300 max-w-4xl mx-auto ${getTypographyClasses('body')}`}>
+              <p className={`text-[22px] text-gray-300 mx-auto ${getTypographyClasses('body')}`}>
                 <Trans
                   i18nKey={subtitle}
                   components={[<br />]}

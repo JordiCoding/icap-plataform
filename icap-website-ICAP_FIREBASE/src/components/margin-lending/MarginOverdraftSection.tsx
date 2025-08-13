@@ -6,17 +6,17 @@ import { motion, useInView } from 'framer-motion';
 const requirements = [
   {
     flag: '/images/flags/saudi.png',
-    label: 'Saudi Market Minimum\nCoverage Requirement',
+    translationKey: 'marginOverdraft.coverageRequirements.saudi',
     percent: '200%'
   },
   {
     flag: '/images/flags/us.png',
-    label: 'U.S Market Minimum\nCoverage Requirement',
+    translationKey: 'marginOverdraft.coverageRequirements.us',
     percent: '200%'
   },
   {
     flag: '/images/flags/Dubai.png',
-    label: 'Emirates market Minimum\nCoverage Requirement',
+    translationKey: 'marginOverdraft.coverageRequirements.emirates',
     percent: '300%'
   }
 ];
@@ -72,7 +72,7 @@ const MarginOverdraftSection: React.FC = () => {
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12">
         {/* Left: Title & Subtitle */}
-        <div className="flex-1 min-w-[320px] max-w-xl text-left">
+        <div className={`flex-1 min-w-[320px] max-w-xl ${isArabic ? 'text-right' : 'text-left'}`}>
           <h2
             className={`text-4xl md:text-5xl mb-8 ${getTypographyClasses('title')} ${isArabic ? 'leading-relaxed' : 'leading-tight'}`}
           >
@@ -102,8 +102,11 @@ const MarginOverdraftSection: React.FC = () => {
             >
               <div className="flex items-center gap-4">
                 <img src={req.flag} alt="flag" className="w-12 h-12 rounded-full object-cover" />
-                <div className="font-body-en font-light text-[16px] text-white whitespace-pre-line">
-                  {req.label}
+                <div className={`font-body-en font-light text-[16px] text-white ${isArabic ? 'text-right' : 'text-left'}`}>
+                  <Trans
+                    i18nKey={req.translationKey}
+                    components={[<br />]}
+                  />
                 </div>
               </div>
               <div className="font-body-en font-medium text-[22px] text-white ml-6">

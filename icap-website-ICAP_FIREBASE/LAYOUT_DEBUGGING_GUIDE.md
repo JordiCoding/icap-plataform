@@ -174,6 +174,66 @@ const layoutClasses = isArabic
 □ Section containers
 ```
 
+### **2.3.1 FeatureSection Subtitle Line Breaks (Specific Case)**
+
+#### **Problem Signs:**
+- Subtitle text with `<0/>` line breaks not working in FeatureSection
+- Text appears as one long line despite translation having line breaks
+- Issue specifically in FeatureSection components with slider variant
+
+#### **Root Cause:**
+```tsx
+// ❌ PROBLEM - max-w-4xl constrains subtitle text
+<p className={`text-[22px] text-gray-300 max-w-4xl mx-auto ${getTypographyClasses('body')}`}>
+  <Trans
+    i18nKey={subtitle}
+    components={[<br />]}
+  />
+</p>
+
+// ✅ SOLUTION - Remove max-width constraint
+<p className={`text-[22px] text-gray-300 mx-auto ${getTypographyClasses('body')}`}>
+  <Trans
+    i18nKey={subtitle}
+    components={[<br />]}
+  />
+</p>
+```
+
+#### **Translation Pattern:**
+```json
+{
+  "realEstateStrategy": {
+    "subtitle": "We invest in high-potential properties that generate income today and build long-term value for<0/>tomorrow, under expert risk governance."
+  }
+}
+```
+
+#### **Debug Steps:**
+```bash
+1. Check if subtitle has max-w-* classes
+2. Verify translation key contains <0/> line breaks
+3. Confirm Trans component is used with components prop
+4. Remove any width constraints on subtitle paragraph
+5. Test with simple text to verify line breaks work
+```
+
+#### **Common Locations:**
+```bash
+□ src/components/ui/FeatureSection.tsx (line ~443)
+□ Any component using Trans with line breaks
+□ Components with max-w-* constraints on text elements
+```
+
+#### **Quick Fix Pattern:**
+```tsx
+// When subtitle line breaks don't work:
+// 1. Remove max-w-* classes from subtitle paragraph
+// 2. Keep mx-auto for center alignment
+// 3. Ensure Trans component has components={[<br />]}
+// 4. Verify translation uses <0/> pattern
+```
+
 ### **2.4 Image Flip vs Text Positioning Conflicts**
 
 #### **Problem Signs:**
