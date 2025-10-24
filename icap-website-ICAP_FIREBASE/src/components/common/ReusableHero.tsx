@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation, Trans } from 'react-i18next';
 import Button from '../ui/Button';
 import Breadcrumbs from './Breadcrumbs';
+import { useTypography } from '../../hooks/useTypography';
 
 export interface HeroProps {
   // Content
@@ -19,6 +20,7 @@ export interface HeroProps {
   backgroundType: 'image' | 'video';
   backgroundSrc: string;
   backgroundFallback?: string;
+  mobileBackgroundSrc?: string;
   
   // Layout
   layout: 'centered' | 'left-aligned' | 'right-aligned';
@@ -72,6 +74,7 @@ const ReusableHero: React.FC<HeroProps> = ({
   backgroundType,
   backgroundSrc,
   backgroundFallback,
+  mobileBackgroundSrc,
   layout = 'centered',
   overlay = true,
   overlayOpacity = 0.3,
@@ -86,6 +89,7 @@ const ReusableHero: React.FC<HeroProps> = ({
   breadcrumbs,
 }) => {
   const { t, i18n } = useTranslation();
+  const { getTypographyClasses } = useTypography();
   const isArabic = i18n.language === 'ar';
 
   // Determine layout classes based on layout prop and RTL
@@ -132,6 +136,13 @@ const ReusableHero: React.FC<HeroProps> = ({
     return baseStyle;
   };
 
+  // Get responsive background style
+  const getResponsiveBackgroundStyle = () => {
+    return {
+      backgroundImage: `url(${backgroundSrc})`,
+    };
+  };
+
   // Handle RTL flipping for content
   const getContentStyle = () => {
     if (enableRTLFlip && isArabic) {
@@ -142,32 +153,32 @@ const ReusableHero: React.FC<HeroProps> = ({
 
   // Get typography classes based on type and language
   const getTitleTypographyClasses = () => {
-    const baseClasses = 'font-bold text-white mb-6 leading-tight';
+    const baseClasses = 'text-black mb-6 leading-tight';
     
     switch (titleTypography) {
       case 'hero-title':
-        return `${baseClasses} text-5xl md:text-7xl tracking-tight break-words`;
+        return `${baseClasses} text-5xl md:text-7xl tracking-tight break-words ${getTypographyClasses('hero-title')}`;
       case 'header-title':
-        return `${baseClasses} text-[68px] font-jokker-semibold`;
+        return `${baseClasses} text-[36px] md:text-[68px] font-chap-light font-light ${getTypographyClasses('title')}`;
       case 'custom':
         return baseClasses;
       default:
-        return `${baseClasses} text-[68px] font-jokker-semibold`;
+        return `${baseClasses} text-[36px] md:text-[68px] font-chap-light font-light ${getTypographyClasses('title')}`;
     }
   };
 
   const getSubtitleTypographyClasses = () => {
-    const baseClasses = 'text-white mb-8 leading-relaxed';
+    const baseClasses = 'text-black mb-8 leading-relaxed';
     
     switch (subtitleTypography) {
       case 'hero-subtitle':
-        return `${baseClasses} text-lg md:text-xl`;
+        return `${baseClasses} text-lg md:text-xl ${getTypographyClasses('subtitle-hero')}`;
       case 'header-subtitle':
-        return `${baseClasses} text-lg md:text-xl font-jokker-light`;
+        return `${baseClasses} ${getTypographyClasses('body')}`;
       case 'custom':
         return baseClasses;
       default:
-        return `${baseClasses} text-lg md:text-xl font-jokker-light`;
+        return `${baseClasses} ${getTypographyClasses('body')}`;
     }
   };
 
@@ -183,12 +194,22 @@ const ReusableHero: React.FC<HeroProps> = ({
 
   return (
     <div 
-      className={`relative h-screen bg-cover bg-center flex items-center ${containerClassName}`}
+      className={`relative h-screen bg-cover bg-center flex items-center md:items-center items-start pt-32 md:pt-0 ${containerClassName}`}
       style={{
         ...getBackgroundStyle(),
         backgroundColor: '#361704' // Loading hero background
       }}
     >
+      {/* Mobile Background Overlay */}
+      {mobileBackgroundSrc && (
+        <div 
+          className="absolute inset-0 bg-cover bg-center md:hidden"
+          style={{
+            backgroundImage: `url(${mobileBackgroundSrc})`,
+            zIndex: 0
+          }}
+        />
+      )}
       {/* Background Video (if video type) */}
       {backgroundType === 'video' && (
         <video
@@ -233,22 +254,19 @@ const ReusableHero: React.FC<HeroProps> = ({
             className={`${getTitleTypographyClasses()} ${getLineHeightClasses()} ${titleClassName}`}
             variants={enableAnimations ? itemVariants : undefined}
           >
-            {/* Use Trans component for line break support */}
+            {/* Use Trans component for line break support with colored spans */}
             <Trans
-              i18nKey={title.includes('\\n') ? undefined : title}
-              components={[<br />]}
-              values={title.includes('\\n') ? undefined : { title }}
-            >
-              {title.includes('\\n') ? title.split('\\n').map((line, idx) => (
-                <div key={idx}>{line}</div>
-              )) : title}
-            </Trans>
+              i18nKey={title}
+              components={[
+                <br />, // <0/> - line break
+                <span className="text-[#A44F17]" />, // <1> - colored text
+              ]}
+            />
           </MotionTitle>
 
           {subtitle && (
             <MotionSubtitle
-              className={`${getSubtitleTypographyClasses()} ${getLineHeightClasses()} ${subtitleClassName}`}
-              style={{ fontSize: '22px' }}
+              className={`${getSubtitleTypographyClasses()} ${getLineHeightClasses()} ${subtitleClassName} text-[16px] md:text-[22px]`}
               variants={enableAnimations ? itemVariants : undefined}
             >
               {/* Use Trans component for line break support */}
@@ -266,7 +284,7 @@ const ReusableHero: React.FC<HeroProps> = ({
           
           {(ctaText || secondaryCtaText) && (
             <MotionCTA variants={enableAnimations ? itemVariants : undefined}>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 w-fit">
                 {ctaText && (
                   <Button 
                     variant="primary" 

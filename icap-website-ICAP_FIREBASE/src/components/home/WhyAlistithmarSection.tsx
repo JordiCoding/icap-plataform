@@ -80,23 +80,23 @@ const WhyAlistithmarSection: React.FC = () => {
         <div className="text-center">
           {/* Header */}
           <div className="mb-16">
-            <h2 className={`text-4xl lg:text-[52px] text-white mb-6 ${getTypographyClasses('title')}`}>
+            <h2 className={`text-4xl lg:text-[52px] text-[#A44F17] mb-6 ${getTypographyClasses('title')}`}>
               {/* Split the title so 'Why' is colored same as 'Multiple Markets' */}
               {t('whyAlistithmar.title').startsWith('Why') ? (
                 <>
-                  <span style={{ color: '#F3B660' }}>Why</span>
+                  <span style={{ color: '#A44F17' }}>Why</span>
                   {t('whyAlistithmar.title').slice(3)}
                 </>
               ) : t('whyAlistithmar.title').startsWith('لماذا') ? (
                 <>
-                  <span style={{ color: '#F3B660' }}>لماذا</span>
+                  <span style={{ color: '#A44F17' }}>لماذا</span>
                   {t('whyAlistithmar.title').slice(4)}
                 </>
               ) : (
                 t('whyAlistithmar.title')
               )}
             </h2>
-            <p className={`text-[22px] text-gray-300 max-w-4xl mx-auto ${getTypographyClasses('body')}`}>
+            <p className={`text-[22px] text-[#1A1C1E] max-w-4xl mx-auto ${getTypographyClasses('body')}`}>
               {t('whyAlistithmar.subtitle')}
             </p>
           </div>
@@ -107,15 +107,15 @@ const WhyAlistithmarSection: React.FC = () => {
             <div className="text-center">
               <div className="mb-6">
                 <VideoIcon
-                  src="/images/why-arrow.webm"
+                  src="/images/goldassets/Harrow.png"
                   alt={t('whyAlistithmar.secureTitle')}
                   className="w-40 h-40 mx-auto object-contain"
                 />
               </div>
-              <h3 className={`text-[28px] text-white mb-4 ${getTypographyClasses('title')}`}>
+              <h3 className={`text-[28px] text-[#A44F17] mb-4 ${getTypographyClasses('title')}`}>
                 {t('whyAlistithmar.secureTitle')}
               </h3>
-              <p className={`text-lg text-gray-300 leading-relaxed ${getTypographyClasses('body')}`}>
+              <p className={`text-lg text-[#1A1C1E] leading-relaxed ${getTypographyClasses('body')}`}>
                 {t('whyAlistithmar.secureDescription')}
               </p>
             </div>
@@ -124,15 +124,15 @@ const WhyAlistithmarSection: React.FC = () => {
             <div className="text-center">
               <div className="mb-6">
                 <VideoIcon
-                  src="/images/why-invest.webm"
+                  src="/images/goldassets/Hgraph.png"
                   alt={t('whyAlistithmar.shariaTitle')}
                   className="w-40 h-40 mx-auto object-contain"
                 />
               </div>
-              <h3 className={`text-[28px] text-white mb-4 ${getTypographyClasses('title')}`}>
+              <h3 className={`text-[28px] text-[#A44F17] mb-4 ${getTypographyClasses('title')}`}>
                 {t('whyAlistithmar.shariaTitle')}
               </h3>
-              <p className={`text-lg text-gray-300 leading-relaxed ${getTypographyClasses('body')}`}>
+              <p className={`text-lg text-[#1A1C1E] leading-relaxed ${getTypographyClasses('body')}`}>
                 {t('whyAlistithmar.shariaDescription')}
               </p>
             </div>
@@ -141,15 +141,15 @@ const WhyAlistithmarSection: React.FC = () => {
             <div className="text-center">
               <div className="mb-6">
                 <VideoIcon
-                  src="/images/why-circle.webm"
+                  src="/images/goldassets/HCircle.png"
                   alt={t('whyAlistithmar.globalTitle')}
                   className="w-40 h-40 mx-auto object-contain"
                 />
               </div>
-              <h3 className={`text-[28px] text-white mb-4 ${getTypographyClasses('title')}`}>
+              <h3 className={`text-[28px] text-[#A44F17] mb-4 ${getTypographyClasses('title')}`}>
                 {t('whyAlistithmar.globalTitle')}
               </h3>
-              <p className={`text-lg text-gray-300 leading-relaxed ${getTypographyClasses('body')}`}>
+              <p className={`text-lg text-[#1A1C1E] leading-relaxed ${getTypographyClasses('body')}`}>
                 {t('whyAlistithmar.globalDescription')}
               </p>
             </div>

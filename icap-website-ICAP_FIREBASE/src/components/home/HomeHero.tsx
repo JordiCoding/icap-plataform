@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ReusableHero from '../common/ReusableHero';
 import Header from '../layout/Header';
 
-const Hero: React.FC = () => {
+const HomeHero: React.FC = () => {
   const { t } = useTranslation();
 
   return (
@@ -14,20 +14,21 @@ const Hero: React.FC = () => {
       {/* Hero Content */}
       <ReusableHero
         // Content
-        title={t('home.heroTitle')}
-        subtitle={t('home.heroSubtitle')}
+        title={t('home.title')}
+        subtitle={t('home.subtitle')}
         ctaText={t('home.startInvesting')}
         
         // Background
-        backgroundType="image"
-        backgroundSrc="/images/background/Homebackground.png"
-        mobileBackgroundSrc="/images/backgroundmobile/MHomebackground.png"
+        backgroundType="video"
+        backgroundSrc="/images/herobackground.mp4"
+        backgroundFallback="/images/hero-background.jpg"
         
         // Layout
-        layout="left-aligned"
+        layout="centered"
         
         // Styling
-        overlay={false}
+        overlay={true}
+        overlayOpacity={0.3}
         
         // Animation
         enableAnimations={true}
@@ -35,7 +36,7 @@ const Hero: React.FC = () => {
         // RTL
         enableRTLFlip={true}
         
-        // Typography - Using the updated header typography
+        // Typography - Using the new header typography
         titleTypography="header-title"
         subtitleTypography="header-subtitle"
       />
@@ -43,4 +44,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero; 
+export default HomeHero;

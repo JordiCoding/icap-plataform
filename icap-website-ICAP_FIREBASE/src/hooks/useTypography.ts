@@ -26,18 +26,31 @@ const TYPOGRAPHY_CONFIG = {
 export const useTypography = () => {
   const { currentLanguage } = useLanguage();
   
+  // Normalize language to ensure it's 'en' or 'ar'
+  const normalizedLanguage = currentLanguage?.startsWith('ar') ? 'ar' : 'en';
+  
   const getFontClass = (type: TextType): string => {
-    const config = TYPOGRAPHY_CONFIG[currentLanguage];
+    const config = TYPOGRAPHY_CONFIG[normalizedLanguage];
+    if (!config || !config[type]) {
+      console.warn(`Typography config not found for language: ${normalizedLanguage}, type: ${type}`);
+      return 'font-body-en'; // fallback
+    }
     return config[type].cssClass;
   };
   
   const getFontFamily = (type: TextType): string => {
-    const config = TYPOGRAPHY_CONFIG[currentLanguage];
-    return `var(--font-${currentLanguage}-${type === 'title' ? 'title' : 'body'})`;
+    const config = TYPOGRAPHY_CONFIG[normalizedLanguage];
+    if (!config || !config[type]) {
+      return `var(--font-en-${type === 'title' ? 'title' : 'body'})`; // fallback
+    }
+    return `var(--font-${normalizedLanguage}-${type === 'title' ? 'title' : 'body'})`;
   };
   
   const getFontWeight = (type: TextType): string => {
-    const config = TYPOGRAPHY_CONFIG[currentLanguage];
+    const config = TYPOGRAPHY_CONFIG[normalizedLanguage];
+    if (!config || !config[type]) {
+      return 'font-light'; // fallback
+    }
     const weight = config[type].weight;
     
     switch (weight) {

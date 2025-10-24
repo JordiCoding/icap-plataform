@@ -10,7 +10,7 @@ import Button from '../ui/Button';
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const { getTypographyClasses } = useTypography();
   return (
-    <Link to={href} className={`text-white hover:text-primary-300 transition-colors duration-200 ${getTypographyClasses('body')}`}>
+    <Link to={href} className={`text-black hover:text-primary-300 transition-colors duration-200 ${getTypographyClasses('body')}`}>
       {children}
     </Link>
   );
@@ -20,7 +20,7 @@ const NavLinkDropdown = ({ title, children, isOpen, onClick }: { title: string; 
   const { getTypographyClasses } = useTypography();
   return (
     <div className="relative group">
-      <button onClick={onClick} className={`text-white hover:text-primary-300 transition-colors duration-200 flex items-center gap-2 ${getTypographyClasses('body')}`}>
+      <button onClick={onClick} className={`text-black hover:text-primary-300 transition-colors duration-200 flex items-center gap-2 ${getTypographyClasses('body')}`}>
         <span>{title}</span>
         <img src="/icons/chevron-down.svg" alt="dropdown" className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
@@ -73,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({ background, position = 'absolute' }) =>
             {/* Block 1: Logo + Links */}
             <div className="flex items-center gap-6">
               <Link to="/">
-                <img className="h-8 w-auto" src="/logo/icap-logo.svg" alt="ICAP Logo" />
+                <img className="h-12 w-auto" src="/logo/icap-logo.png" alt="ICAP Logo" />
               </Link>
               <nav className="hidden md:flex items-center gap-6">
                 <NavLink href="/brokerage">{t('navigation.brokerage')}</NavLink>
@@ -86,24 +86,38 @@ const Header: React.FC<HeaderProps> = ({ background, position = 'absolute' }) =>
             </div>
 
             {/* Block 2: Search, Language Toggle, Buttons */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-6">
               <button>
-                <img src="/icons/search.svg" alt="Search" className="w-6 h-6" />
+                <img src="/icons/search.svg" alt="Search" className="w-6 h-6 filter brightness-0" />
               </button>
               <button
                 onClick={toggleLanguage}
-                className={`text-white hover:text-primary-300 transition-colors duration-200 font-medium ${getTypographyClasses('body')}`}
+                className={`text-black hover:text-primary-300 transition-colors duration-200 font-medium font-title-ar font-normal text-base`}
               >
-                {currentLanguage === 'en' ? 'AR' : 'EN'}
+                {currentLanguage === 'en' ? 'العربية' : 'EN'}
               </button>
-              {/* CTA Buttons moved from Hero */}
-              <Button variant="secondary" className="px-4 py-2 text-sm">{ctaSecondary}</Button>
-              <Button variant="primary" className="px-4 py-2 text-sm">{ctaPrimary}</Button>
+              {/* CTA Buttons with new variants */}
+              <Button variant="log-in" className="px-4 py-2 text-sm">{ctaSecondary}</Button>
+              <Button variant="open-account" className="px-4 py-2 text-sm">{ctaPrimary}</Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button onClick={toggleMobileMenu} className="text-white">
+            {/* Mobile: Arabic Language Toggle, Search, Hamburger Menu */}
+            <div className="md:hidden flex items-center gap-6">
+              {/* Arabic Language Toggle */}
+              <button
+                onClick={toggleLanguage}
+                className={`text-black hover:text-primary-300 transition-colors duration-200 font-medium font-title-ar font-normal text-base`}
+              >
+                {currentLanguage === 'en' ? 'العربية' : 'EN'}
+              </button>
+              
+              {/* Search Icon */}
+              <button>
+                <img src="/icons/search.svg" alt="Search" className="w-6 h-6 filter brightness-0" />
+              </button>
+              
+              {/* Hamburger Menu Button */}
+              <button onClick={toggleMobileMenu} className="text-black">
                 {/* Hamburger Icon */}
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
               </button>

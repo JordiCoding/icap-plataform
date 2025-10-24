@@ -61,7 +61,9 @@
     "login": "Log in",
     "signup": "Sign Up",
     "startInvesting": "Explore Opportunities",
-    "openAccount": "Open Account"
+    "openAccount": "Open Account",
+        "heroTitle": "<1>Ranked Among the Best</1><0/>ICAP in Forbes<0/>Middle East 2025",
+        "heroSubtitle": "For those who expect more than returns. ICAP<0/>offers Clarity, control, and confidence."
   },
   "portfolio": {
     "preTitle": "Your Portfolio",
@@ -162,6 +164,11 @@
     "titlePart2": "Endless markets",
     "subtitle": "From Riyadh to Wall Street, access global opportunities in U.S., GCC,<br>Jordan and Egypt in just a few taps — all in one platform.",
     "learnMore": "Learn More"
+  },
+  "globalMarkets2": {
+    "title": "One Platform<1>Multiple Markets</1>",
+    "subtitle": "From Riyadh to Wall Street, access global opportunities in U.S., GCC,<0/>Jordan and Egypt in just a few taps.",
+    "button": "Get Access"
   },
   "whyAlistithmar": {
     "title": "Why Alistithmar Capital?",
