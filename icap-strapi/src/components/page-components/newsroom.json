@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_page_components_newsrooms",
+  "info": {
+    "displayName": "Newsroom"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "blocks"
+    },
+    "button_text": {
+      "type": "string"
+    }
+  }
+}
